@@ -1,0 +1,15 @@
+@function px2rem ($px) {
+    $rem: 37.5px;
+    @return ($px/$rem) + rem;
+}
+
+/* 颜色定义规范 */
+$border-radius: 6px;
+
+/* font-size */
+$font-size-large-x: 20px;
+$font-size-large: 18px;
+$font-size-medium-x: 16px;
+$font-size-medium: 14px;
+$font-size-small: 12px;
+$font-size-small-s: 10px;
