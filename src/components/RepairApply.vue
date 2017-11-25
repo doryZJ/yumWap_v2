@@ -1,35 +1,88 @@
 <template>
   <div class="repairApply">
-    <div class="circle-wrapper"></div>
+    <div class="circle-wrapper" id="circleWrapper">
+      <div id="circle" class="circle"></div>
+      <div class="content">
+        <span class="count">{{listCount}}</span>
+        <span class="text" v-show="pageType === 0">维修申请</span>
+        <span class="text" v-show="pageType === 1">设备告警</span>
+      </div>
+    </div>
     <div class="repairList">
-      <ul>
-        <li v-for="(item, index) in list">
-          <span class="state"></span>
-          <span class="repairName">{{item.name}}</span>
-          <span class="repairCount">{{item.count}}件</span>
+      <ul :class="listCls">
+        <li v-for="(item, index) in list" :key="index" v-if="pageType === 0">
+          <div class="name-wrapper">
+            <span class="state"></span>
+            <span class="repairName">{{item.name}}</span>
+          </div>
+          <span class="repairCount">{{item.value}}件</span>
+        </li>
+        <li v-for="(item, index) in list" :key="index" v-if="pageType === 1">
+          <div class="name-wrapper">
+            <span class="state"></span>
+            <span class="repairName">{{item.name}}</span>
+          </div>
+          <span class="repairCount">{{item.value}}件</span>
         </li>
       </ul>
     </div>
   </div>
 </template>
 <script>
+  import echarts from 'echarts'
   export default {
+    props: {
+      pageType: { // 0: 区域首页，1: 门店首页
+        type: Number,
+        default: 0
+      },
+      list: {
+        type: Array,
+        default: []
+      }
+    },
     data () {
       return {
-        list: [
-          {
-            name: '常规维修申请',
-            count: '14'
-          },
-          {
-            name: '较紧急维修申请',
-            count: '6'
-          },
-          {
-            name: '紧急维修申请',
-            count: '4'
-          }
-        ]
+      }
+    },
+    computed: {
+      listCount () {
+        let count = 0
+        this.list.forEach((item) => {
+          count += item.value
+        })
+        return count
+      },
+      listCls () {
+        return this.pageType === 0 ? 'areaList' : 'storeList'
+      },
+      circleColor () {
+        return this.pageType === 0 ? ['#6FB788', '#E6B634', '#DE6C60'] : ['#F8E71C', '#F68B44', '#EE3124']
+      }
+    },
+    mounted () {
+      this.initEcharts()
+    },
+    methods: {
+      initEcharts () {
+        const elCircle = document.getElementById('circle')
+        let circleChart = echarts.init(elCircle)
+        circleChart.setOption({
+          series: [
+            {
+              type: 'pie',
+              radius: ['70%', '90%'],
+              label: {
+                normal: {
+                  show: false,
+                  position: 'center'
+                }
+              },
+              data: this.list
+            }
+          ],
+          color: this.circleColor
+        })
       }
     }
   }
@@ -47,6 +100,38 @@
       width: 1.2rem;
       height: 1.2rem;
       margin-right: 0.16rem;
+      position: relative;
+
+      .circle {
+        width: 100%;
+        height: 100%;
+      }
+      .content {
+        position: absolute;
+        width: 0.6rem;
+        height: 0.6rem;
+        top: 0.3rem;
+        left: 0.3rem;
+        text-align: center;
+
+        .count {
+          font-family: HoneywellSans-Light;
+          font-size: 36px;
+          color: #303030;
+          letter-spacing: -0.56px;
+          line-height: 36px;
+          display: block;
+        }
+
+        .text {
+          font-family: SourceHanSansCN-Light;
+          font-size: 12px;
+          color: #303030;
+          letter-spacing: -0.25px;
+          line-height: 18px;
+          display: block;
+        }
+      }
     }
 
     .repairList {
@@ -62,10 +147,20 @@
           justify-content: space-between;
           margin-bottom: 0.16rem;
 
+          .name-wrapper {
+            height: 24px;
+            line-height: 24px;
+            position: relative;
+            font-size: 0;
+            display: flex;
+            align-items: center;
+          }
+
           .state {
             width: 6px;
             height: 24px;
             margin-right: 0.14rem;
+            display: inline-block;
           }
 
           .repairName {
@@ -75,6 +170,7 @@
             font-size: 14px;
             color: #707070;
             letter-spacing: -0.25px;
+            display: inline-block;
           }
 
           .repairCount {
@@ -85,7 +181,11 @@
             color: #707070;
             letter-spacing: -0.22px;
           }
+        }
+      }
 
+      .areaList {
+        li {
           &:nth-of-type(1) {
             .state {
               background: #6FB788;
@@ -102,6 +202,29 @@
             margin-bottom: 0;
             .state {
               background: #DE6C60;
+            }
+          }
+        }
+      }
+
+      .storeList {
+        li {
+          &:nth-of-type(1) {
+            .state {
+              background: #F8E71C;
+            }
+          }
+
+          &:nth-of-type(2) {
+            .state {
+              background: #F68B44;
+            }
+          }
+
+          &:nth-of-type(3) {
+            margin-bottom: 0;
+            .state {
+              background: #EE3124;
             }
           }
         }

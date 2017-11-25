@@ -1,9 +1,9 @@
 <template>
   <div class="area-view">
     <div class="title">
-      <span>上海地区</span>
+      <span>肯德基洛川点</span>
     </div>
-    <repair-apply :pageType="pageType" :list="areaList"></repair-apply>
+    <repair-apply :pageType="pageType" :list="storeList"></repair-apply>
     <area-info :infoType="infoType"></area-info>
     <overview :overviewType="energyType" :overviewParams="energy" :title="energyTitle"></overview>
     <overview :overviewType="maintenanceType" :overviewParams="maintenance" :title="maintenanceTitle"></overview>
@@ -19,46 +19,44 @@
   export default {
     data () {
       return {
-        pageType: 0,
+        pageType: 1,
         footerNav: 0,
         energyType: 0,
-        infoType: 0,
-        maintenanceType: 1,
-        areaList: [
+        infoType: 1,
+        maintenanceType: 2,
+        storeList: [
           {
-            name: '常规维修申请',
-            value: 14
+            name: '设备警告·低',
+            value: 1
           },
           {
-            name: '较紧急维修申请',
-            value: 6
+            name: '设备警告·中',
+            value: 1
           },
           {
-            name: '紧急维修申请',
-            value: 4
+            name: '设备警告·高',
+            value: 2
           }
         ],
-        energyTitle: '区域能耗总览',
+        energyTitle: '门店能耗总览',
         energy: {
-          item1Name: '今日全区域总耗电量',
-          item1Num1: '15,123',
-          item1Num2: '25,131',
-          item2Name: '今日全区域总用水量',
-          item2Num1: '1,631',
-          item2Num2: '2,131',
-          item3Name: '今日全区域能耗超标店铺',
-          item3Num: '3'
+          item1Name: '今日全店总耗电量',
+          item1Num1: '95',
+          item1Num2: '150',
+          item2Name: '今日全店总用水量',
+          item2Num1: '41',
+          item2Num2: '70',
+          item3Name: '今日全区域节能减排排名',
+          item3Num: '53'
         },
-        maintenanceTitle: '区域运维总览',
+        maintenanceTitle: '门店运维总览',
         maintenance: {
-          item1Name: '今日全区域已维修店铺',
-          item1Num1: '8',
-          item1Num2: '17',
-          item2Name: '今日全区域总维修费用',
-          item2Num1: '1,631',
-          item2Num2: '2,131',
-          item3Name: '今日待处理运维申请',
-          item3Num: '12'
+          item1Name: '今日待处理设备告警',
+          item1Num1: '4',
+          item2Name: '今日本店总维修费用',
+          item2Num1: '2,000',
+          item3Name: '今日全区域优秀运维排名',
+          item3Num: '72'
         },
         videoTitle: '视频监控'
       }
@@ -80,12 +78,24 @@
     margin-bottom: 0.59rem;
 
     .title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
-      width: 100%;
-      text-align: center;
+
+      .back {
+        font-family: SourceHanSansCN-Normal;
+        font-size: 14px;
+        color: #688BA6;
+        letter-spacing: 0;
+        margin-left: 0.1rem;
+        position: absolute;
+        left: 0.1rem;
+      }
     }
   }
 </style>

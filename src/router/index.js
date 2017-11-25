@@ -3,6 +3,9 @@ import Router from 'vue-router'
 import Login from '@/views/login'
 import StoreList from '@/views/storeList'
 import AreaIndex from '@/views/AreaIndex'
+import StoreIndex from '@/views/StoreIndex'
+import StoreIndexManager from '@/views/StoreIndex-Manager'
+import DeviceList from '@/views/DeviceList'
 
 Vue.use(Router)
 
@@ -20,9 +23,24 @@ const router = new Router({
       component: AreaIndex
     },
     {
+      path: '/storeIndex',
+      name: 'StoreIndex',
+      component: StoreIndex
+    },
+    {
+      path: '/storeIndexManager',
+      name: 'StoreIndexManager',
+      component: StoreIndexManager
+    },
+    {
       path: '/storeList',
       name: 'StoreList',
       component: StoreList
+    },
+    {
+      path: '/deviceList',
+      name: 'DeviceList',
+      component: DeviceList
     }
   ]
 })
