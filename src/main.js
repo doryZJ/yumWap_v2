@@ -3,10 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Mint from 'mint-ui'
 
 // import './assets/styles/index.scss'
 import 'font-awesome/css/font-awesome.css'
 Vue.config.productionTip = false
+Vue.use(Mint)
 
 /* eslint-disable no-new */
 new Vue({

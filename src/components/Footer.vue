@@ -30,7 +30,7 @@
           {
             icon: iconHome,
             name: '门店首页',
-            url: '/index'
+            url: '/storeIndexManager'
           },
           {
             icon: iconTarget,
@@ -40,7 +40,7 @@
           {
             icon: iconEquipment,
             name: '设备列表',
-            url: '/index'
+            url: '/deviceList'
           },
           {
             icon: iconMyaccount,

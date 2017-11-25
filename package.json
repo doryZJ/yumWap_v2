@@ -13,6 +13,7 @@
   "dependencies": {
     "echarts": "^3.8.5",
     "jquery": "^3.2.1",
+    "mint-ui": "^2.2.11",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
