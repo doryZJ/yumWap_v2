@@ -29,7 +29,7 @@
         navList: [
           {
             icon: iconHome,
-            name: '门店首页',
+            name: '区域首页',
             url: '/storeIndexManager'
           },
           {
@@ -39,7 +39,7 @@
           },
           {
             icon: iconEquipment,
-            name: '设备列表',
+            name: '门店列表',
             url: '/deviceList'
           },
           {
