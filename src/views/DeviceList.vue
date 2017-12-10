@@ -53,7 +53,6 @@
   }
 </script>
 <style lang="scss">
-  @import url("//unpkg.com/mint-ui/lib/style.css");
   .deviceList {
     background: #F4F8FB;
     width: 100%;

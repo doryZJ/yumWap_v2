@@ -1,7 +1,7 @@
 <template>
   <div class="login-view">
     <div class="logo">
-      <img src="../assets/images/icon_app_logo_167x156@2x.png" alt="">
+      <span>设备智能管理平台</span>
     </div>
     <div class="login-wrapper">
       <div class="login">
@@ -20,8 +20,8 @@
       </div>
     </div>
     <div class="copyright">
-      <p>百胜中国设备智能管理平台 v 0.1.1</p>
-      <span>Powered by HONEYWELL</span>
+      <p>Powered by</p>
+      <img src="../assets/images/logo_honeywell_white_120x23.png" alt="">
     </div>
   </div>
 </template>
@@ -76,19 +76,21 @@
     background-size: 100% 100%;
 
     .logo {
-      padding-top: 0.85rem;
+      padding-top: 1rem;
       margin: 0 auto;
-      width: 1.67rem;
+      width: 1.92rem;
       height: 1.56rem;
 
-      img {
-        width: 100%;
-        height: 100%;
+      span {
+        font-family: SourceHanSansCN-Medium;
+        font-size: 0.24rem;
+        color: #FFFFFF;
+        letter-spacing: 0;
       }
     }
 
     .login-wrapper {
-      margin-top: 0.55rem;
+      margin-top: 0.45rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -97,7 +99,7 @@
         width: 2.56rem;
         height: auto;
         text-align: center;
-        
+
         .username, .password {
           width: 100%;
           border-bottom: 1px solid #D0D0D0;
@@ -150,6 +152,7 @@
       bottom: 0.21rem;
       text-align: center;
       width: 100%;
+      font-size: 12px;
 
       p {
         font-family: SourceHanSansCN-Light;
@@ -166,6 +169,14 @@
         color: #FFFFFF;
         letter-spacing: 0;
         display: block;
+      }
+
+      img {
+        width: 0.9rem;
+        height: 0.17rem;
+        font-size: 0;
+        margin-top: 8px;
+        display: inline-block;
       }
     }
 

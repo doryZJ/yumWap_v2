@@ -208,6 +208,8 @@
       }
 
       .storeList {
+        background: #fff;
+        
         li {
           &:nth-of-type(1) {
             .state {

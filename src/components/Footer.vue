@@ -35,12 +35,12 @@
           {
             icon: iconTarget,
             name: '任务列表',
-            url: '/index'
+            url: '/taskList/store'
           },
           {
             icon: iconEquipment,
             name: '门店列表',
-            url: '/deviceList'
+            url: '/storeList'
           },
           {
             icon: iconMyaccount,
