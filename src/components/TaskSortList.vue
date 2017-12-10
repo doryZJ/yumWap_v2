@@ -2,7 +2,7 @@
   <div class="taskSortList">
     <scroll class="list-wrapper">
       <ul>
-        <li v-for="(item, index) in list" :key="index">
+        <li v-for="(item, index) in list" :key="index" @click="handleTack">
           <div class="item">
             <div class="item-left">
               <img src="../assets/images/icon_on_36x36.png" v-show="item.state === 0" alt="">
@@ -81,6 +81,11 @@
     },
     components: {
       Scroll
+    },
+    methods: {
+      handleTack () {
+        this.$router.push('/areaTicketDetail')
+      }
     }
   }
 </script>

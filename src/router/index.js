@@ -8,6 +8,10 @@ import StoreIndexManager from '@/views/StoreIndex-Manager'
 import DeviceList from '@/views/DeviceList'
 import TaskList from '@/views/TaskList'
 import ScanQRcode from '@/views/ScanQRcode'
+import AreaTicketDetail from '@/views/AreaTicketDetail'
+import StoreMaintenanceDetail from '@/views/StoreMaintenanceDetail'
+import DeviceDetail from '@/views/DeviceDetail'
+import MaintenanceDetail from '@/views/MaintenanceDetail'
 
 Vue.use(Router)
 
@@ -45,7 +49,7 @@ const router = new Router({
       component: DeviceList
     },
     {
-      path: '/taskList',
+      path: '/taskList/:type',
       name: 'TaskList',
       component: TaskList
     },
@@ -53,6 +57,26 @@ const router = new Router({
       path: '/scanQRcode',
       name: 'ScanQRcode',
       component: ScanQRcode
+    },
+    {
+      path: '/areaTicketDetail/:type',
+      name: 'AreaTicketDetail',
+      component: AreaTicketDetail
+    },
+    {
+      path: '/storeMaintenanceDetail',
+      name: 'StoreMaintenanceDetail',
+      component: StoreMaintenanceDetail
+    },
+    {
+      path: '/deviceDetail',
+      name: 'DeviceDetail',
+      component: DeviceDetail
+    },
+    {
+      path: '/maintenanceDetail',
+      name: 'MaintenanceDetail',
+      component: MaintenanceDetail
     }
   ]
 })

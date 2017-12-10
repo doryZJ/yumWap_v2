@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="maintenanceFooter">
       <div v-for="(item, index) in navList" :key="index">
         <router-link :to="item.url">
             <div class="box" :class="{'active': nav === index}">
@@ -11,39 +11,24 @@
   </div>
 </template>
 <script>
-  import iconHomeOff from '@/assets/images/icon_home_off_24x23.png'
   import iconTargetOff from '@/assets/images/icon_target_off_24x24.png'
-  import iconEquipmentOff from '@/assets/images/icon_equipment_off_24x22.png'
-  import iconMyaccountOff from '@/assets/images/icon_myaccount_off_24x23.png'
-  import iconHomeOn from '@/assets/images/icon_home_on_24x23.png'
   import iconTargetOn from '@/assets/images/icon_target_on_24x24.png'
-  import iconEquipmentOn from '@/assets/images/icon_equipment_on_24x22.png'
-  import iconMyaccountOn from '@/assets/images/icon_myaccount_on_24x23.png'
+  import iconAccountOff from '@/assets/images/icon_myaccount_off_24x23.png'
+  import iconAccountOn from '@/assets/images/icon_myaccount_on_24x23.png'
+  
   export default {
     data () {
-      const iconHome = this.nav === 0 ? iconHomeOn : iconHomeOff
-      const iconTarget = this.nav === 1 ? iconTargetOn : iconTargetOff
-      const iconEquipment = this.nav === 2 ? iconEquipmentOn : iconEquipmentOff
-      const iconMyaccount = this.nav === 3 ? iconMyaccountOn : iconMyaccountOff
+      const iconTarget = this.nav === 0 ? iconTargetOn : iconTargetOff
+      const iconAccount = this.nav === 1 ? iconAccountOn : iconAccountOff
       return {
         navList: [
           {
-            icon: iconHome,
-            name: '区域首页',
-            url: '/storeIndexManager'
-          },
-          {
             icon: iconTarget,
             name: '任务列表',
-            url: '/index'
+            url: '/taskList/store'
           },
           {
-            icon: iconEquipment,
-            name: '门店列表',
-            url: '/deviceList'
-          },
-          {
-            icon: iconMyaccount,
+            icon: iconAccount,
             name: '我的账户',
             url: '/index'
           }
@@ -59,7 +44,7 @@
   }
 </script>
 <style lang="scss">
-  .footer {
+  .maintenanceFooter {
     width: 100%;
     height: 0.49rem;
     background: #35404D;
@@ -67,14 +52,13 @@
     bottom: 0;
 
     .box {
-      width: 25%;
+      width: 50%;
       padding-top: 0.05rem;
       text-align: center;
       display: block;
       float: left;
 
       img {
-        height: 24px;
         display: block;
         margin: 0 auto;
       }

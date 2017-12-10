@@ -7,16 +7,16 @@
       <div class="login">
         <div class="username">
           <img src="../assets/images/icon_id_9x20 copy 2.png" alt="">
-          <input type="text" placeholder="用户名" value="" >
+          <input type="text" placeholder="用户名" value="" v-model="username">
         </div>
         <div class="password">
           <img src="../assets/images/icon_password_11x19 copy 2.png" alt="">
-          <input type="password" placeholder="密码" value="">
+          <input type="password" placeholder="密码" value="" v-model="password">
         </div>
-        <div class="btn">
+        <div class="btn" @click="handleLogin">
           登录
-        </div>  
-        <span class="label">忘记密码?</span> 
+        </div>
+        <span class="label">忘记密码?</span>
       </div>
     </div>
     <div class="copyright">
@@ -27,8 +27,39 @@
 </template>
 <script>
   // import $ from 'jquery'
+  import { Toast } from 'mint-ui'
   export default {
+    data () {
+      return {
+        username: '',
+        password: ''
+      }
+    },
     mounted () {
+    },
+    methods: {
+      handleLogin () {
+        if (this.checkLogin()) {
+          this.$router.push('/areaIndex')
+        }
+      },
+      checkLogin () {
+        if (!this.username) {
+          Toast({
+            message: '请输入用户名！',
+            duration: 2000
+          })
+          return false
+        }
+        if (!this.password) {
+          Toast({
+            message: '请输入密码！',
+            duration: 2000
+          })
+          return false
+        }
+        return true
+      }
     }
   }
 </script>

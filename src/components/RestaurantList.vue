@@ -7,7 +7,7 @@
     <div class="rest">
       <scroll class="list-wrapper">
         <ul class="list" ref="list">
-          <li v-for="i in 20">肯德基崇明崇明餐厅</li>
+          <li v-for="i in 20" :key="i">肯德基崇明崇明餐厅</li>
         </ul>
       </scroll>
       <div class="list-shortcut">
