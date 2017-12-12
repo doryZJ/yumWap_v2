@@ -45,7 +45,7 @@
           {
             icon: iconMyaccount,
             name: '我的账户',
-            url: '/index'
+            url: '/maintenanceDetail'
           }
         ]
       }

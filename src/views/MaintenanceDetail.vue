@@ -6,7 +6,7 @@
     </div>
     <ticket-info></ticket-info>
     <div class="btn-wrapper">
-      <span class="btn">扫描二维码签到</span>
+      <span class="btn" @click="handleScanQRcode">扫描二维码签到</span>
     </div>
     <maintenance-info :title="fireSystem.title" :params="fireSystem.params"></maintenance-info>
     <maintenance-info :title="kitchenEquipment.title" :params="kitchenEquipment.params"></maintenance-info>
@@ -60,6 +60,11 @@
       TicketInfo,
       MaintenanceInfo,
       MaintenanceFooter
+    },
+    methods: {
+      handleScanQRcode () {
+        this.$router.push('/scanQRcode')
+      }
     }
   }
 </script>

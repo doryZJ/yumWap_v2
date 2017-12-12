@@ -63,9 +63,10 @@
     }
   }
 </script>
+ 
 <style lang="scss">
   @import '../assets/styles/variable';
-
+  // eslint-disable
   .login-view {
     position: relative;
     width: 100%;
@@ -103,9 +104,12 @@
         .username, .password {
           width: 100%;
           border-bottom: 1px solid #D0D0D0;
+          display: box;
           display: flex;
           height: 0.46rem;
           align-items: center;
+          box-pack: center;
+          box-align: center;
 
           input {
             margin-left: 0.275rem;

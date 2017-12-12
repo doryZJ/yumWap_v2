@@ -16,7 +16,7 @@ import MaintenanceDetail from '@/views/MaintenanceDetail'
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',

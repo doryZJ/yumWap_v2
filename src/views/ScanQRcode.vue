@@ -6,8 +6,12 @@
     </div>
     <div class="scan-content">
       <div class="scan-wrapper">
+<<<<<<< HEAD
         <div class="scan-box">
 
+=======
+        <div class="scan-box" id="myImage">
+>>>>>>> feat(dist): modify build dist
         </div>
         <p>对准签到处的二维码</p>
       </div>
@@ -37,6 +41,23 @@ export default {
     // } else {
     //   console.log('getUserMedia not supported')
     // }
+    this.scanCode()
+  },
+  methods: {
+    scanCode () {
+      /* eslint-disable */
+      cordova.plugins.barcodeScanner.scan(
+        function (result) {
+          alert('We got a barcode\n' +
+            'Result: ' + result.text + '\n' +
+            'Format: ' + result.format + '\n' +
+            'Cancelled: ' + result.cancelled)
+        },
+        function (error) {
+          alert('Scanning failed: ' + error)
+        }
+      )
+    }
   }
 }
 </script>
