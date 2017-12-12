@@ -19,12 +19,14 @@
   import iconTargetOn from '@/assets/images/icon_target_on_24x24.png'
   import iconEquipmentOn from '@/assets/images/icon_equipment_on_24x22.png'
   import iconMyaccountOn from '@/assets/images/icon_myaccount_on_24x23.png'
+  
   export default {
     data () {
       const iconHome = this.nav === 0 ? iconHomeOn : iconHomeOff
       const iconTarget = this.nav === 1 ? iconTargetOn : iconTargetOff
       const iconEquipment = this.nav === 2 ? iconEquipmentOn : iconEquipmentOff
-      const iconMyaccount = this.nav === 3 ? iconMyaccountOn : iconMyaccountOff
+      const iconRepair = this.nav === 3 ? iconEquipmentOn : iconEquipmentOff
+      const iconMyaccount = this.nav === 4 ? iconMyaccountOn : iconMyaccountOff
       return {
         navList: [
           {
@@ -34,7 +36,12 @@
           },
           {
             icon: iconTarget,
-            name: '任务列表',
+            name: '巡检工单',
+            url: '/inspectionOrders'
+          },
+          {
+            icon: iconRepair,
+            name: '维修工单',
             url: '/taskList/store'
           },
           {
@@ -67,7 +74,7 @@
     bottom: 0;
 
     .box {
-      width: 25%;
+      width: 20%;
       padding-top: 0.05rem;
       text-align: center;
       display: block;

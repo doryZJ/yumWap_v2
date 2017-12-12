@@ -12,6 +12,7 @@ import AreaTicketDetail from '@/views/AreaTicketDetail'
 import StoreMaintenanceDetail from '@/views/StoreMaintenanceDetail'
 import DeviceDetail from '@/views/DeviceDetail'
 import MaintenanceDetail from '@/views/MaintenanceDetail'
+import InspectionOrders from '@/views/InspectionOrders'
 
 Vue.use(Router)
 
@@ -77,6 +78,11 @@ const router = new Router({
       path: '/maintenanceDetail',
       name: 'MaintenanceDetail',
       component: MaintenanceDetail
+    },
+    {
+      path: '/inspectionOrders',
+      name: 'InspectionOrders',
+      component: InspectionOrders
     }
   ]
 })
