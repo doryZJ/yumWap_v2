@@ -143,17 +143,19 @@
         padding: 0;
 
         li {
-          display: flex;
-          justify-content: space-between;
           margin-bottom: 0.16rem;
+          height: 24px;
+
+          &::after {
+            clear: both;
+          }
 
           .name-wrapper {
             height: 24px;
             line-height: 24px;
             position: relative;
             font-size: 0;
-            display: flex;
-            align-items: center;
+            float: left;
           }
 
           .state {
@@ -161,6 +163,7 @@
             height: 24px;
             margin-right: 0.14rem;
             display: inline-block;
+            vertical-align: middle;
           }
 
           .repairName {
@@ -169,8 +172,10 @@
             font-family: SourceHanSansCN-Normal;
             font-size: 14px;
             color: #707070;
+            line-height: 24px;
             letter-spacing: -0.25px;
             display: inline-block;
+            vertical-align: middle;
           }
 
           .repairCount {
@@ -180,6 +185,7 @@
             font-size: 14px;
             color: #707070;
             letter-spacing: -0.22px;
+            float: right;
           }
         }
       }

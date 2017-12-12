@@ -78,13 +78,15 @@
 
     .head {
       position: relative;
-      display: flex;
       align-items: center;
+      height: 18px;
+      font-size: 12px;
 
       img {
         width: 18px;
         margin: 0;
         padding: 0;
+        vertical-align: middle;
       }
 
       span {
@@ -93,6 +95,7 @@
         color: #707070;
         margin-left: 5px;
         display: inline-block;
+        vertical-align: middle;
       }
     }
 

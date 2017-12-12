@@ -13,6 +13,8 @@ import StoreMaintenanceDetail from '@/views/StoreMaintenanceDetail'
 import DeviceDetail from '@/views/DeviceDetail'
 import MaintenanceDetail from '@/views/MaintenanceDetail'
 import InspectionOrders from '@/views/InspectionOrders'
+import RepairOrders from '@/views/RepairOrders'
+import InspectionStepOne from '@/views/InspectionStepOne'
 
 Vue.use(Router)
 
@@ -83,6 +85,16 @@ const router = new Router({
       path: '/inspectionOrders',
       name: 'InspectionOrders',
       component: InspectionOrders
+    },
+    {
+      path: '/repairOrders',
+      name: 'RepairOrders',
+      component: RepairOrders
+    },
+    {
+      path: '/inspectionStepOne',
+      name: 'InspectionStepOne',
+      component: InspectionStepOne
     }
   ]
 })

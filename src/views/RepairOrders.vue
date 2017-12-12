@@ -1,11 +1,12 @@
 <template>
-  <div class="inspectionOrders">
+  <div class="repairOrders">
     <div class="title">
-      <span>巡检工单</span>
+      <span>维修工单</span>
     </div>
     <div class="tab-wrapper">
-      <div class="tab" :class='{"active": tabActive === 0}' @click="handleTab(0)">待巡检</div>
-      <div class="tab" :class='{"active": tabActive === 1}' @click="handleTab(1)">已完成</div>
+      <div class="tab" :class='{"active": tabActive === 0}' @click="handleTab(0)">待确认</div>
+      <div class="tab" :class='{"active": tabActive === 1}' @click="handleTab(1)">待维修</div>
+      <div class="tab" :class='{"active": tabActive === 2}' @click="handleTab(2)">已完成</div>
     </div>
     <inspection-List></inspection-List>
     <y-footer :nav="footerNav"></y-footer>
@@ -17,7 +18,7 @@
   export default {
     data () {
       return {
-        footerNav: 1,
+        footerNav: 2,
         tabActive: 0
       }
     },
@@ -33,7 +34,7 @@
   }
 </script>
 <style lang="scss">
-  .inspectionOrders {
+  .repairOrders {
     width: 100%;
     height: 100%;
     background: #F4F8FB;
@@ -63,7 +64,7 @@
       }
 
       .tab {
-        width: 50%;
+        width: 33.33333%;
         font-family: SourceHanSansCN-Medium;
         font-size: 13px;
         color: #00BFB3;

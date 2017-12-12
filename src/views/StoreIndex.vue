@@ -1,7 +1,6 @@
 <template>
   <div class="area-view">
     <div class="title">
-      <div class="back"><返回</div>
       <span>肯德基洛川点</span>
     </div>
     <repair-apply :pageType="pageType" :list="storeList"></repair-apply>

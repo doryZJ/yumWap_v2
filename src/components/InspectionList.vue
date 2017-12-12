@@ -1,60 +1,60 @@
 <template>
   <div class="inspectionList">
-    <scroll class="list-wrapper">
-      <ul>
-        <li v-for="(item, index) in list" :key="index">
-          <div class="item">
-            <div class="item-left">
-              <span class="icon" v-show="item.state === 0">日</span>
-              <span class="icon" v-show="item.state === 1">周</span>
-              <span class="icon" v-show="item.state === 2">月</span>
-              <div class="product">
-                <p>{{item.name}}</p>
-                <span>{{item.store}}</span>
-              </div>
-            </div>
-            <div class="item-right">
-              <div class="modulus">
-                <div class="setup" v-show="item.date">
-                  {{item.date}}
-                </div>
-              </div>
-              <div class="warning">
-                <img src="../assets/images/Gray Copy 12.png" alt="">
-              </div>
+    <ul>
+      <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
+        <div class="item">
+          <div class="item-left">
+            <span class="icon" v-show="item.state === 0">日</span>
+            <span class="icon" v-show="item.state === 1">周</span>
+            <span class="icon" v-show="item.state === 2">月</span>
+            <span class="icon icon-anxious" v-show="item.state === 3">急</span>
+            <span class="icon icon-in" v-show="item.state === 4">中</span>
+            <span class="icon icon-general" v-show="item.state === 5">普</span>
+            <div class="product">
+              <p>{{item.name}}</p>
+              <span>{{item.store}}</span>
             </div>
           </div>
-        </li>
-      </ul>
-    </scroll>
+          <div class="item-right">
+            <div class="modulus">
+              <div class="setup" v-show="item.date">
+                {{item.date}}
+              </div>
+            </div>
+            <div class="warning">
+              <img src="../assets/images/Gray Copy 12.png" alt="">
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </template>
 <script>
-  import Scroll from './Scroll'
   export default {
     data () {
       return {
         list: [
           {
-            state: 0, // 0: 日，1: 周，2: 月
+            state: 3, // 0: 日，1: 周，2: 月
             name: '冷链系统日检',
             store: '永辉1店',
             date: '2017/10/16'
           },
           {
-            state: 1, // 0: 日，1: 周，2: 月
+            state: 4, // 0: 日，1: 周，2: 月
             name: '冷链系统日检',
             store: '永辉1店',
             date: '2017/10/16'
           },
           {
-            state: 2, // 0: 日，1: 周，2: 月
+            state: 5, // 0: 日，1: 周，2: 月
             name: '冷链系统日检',
             store: '永辉1店',
             date: '2017/10/16'
           },
           {
-            state: 0, // 0: 日，1: 周，2: 月
+            state: 3, // 0: 日，1: 周，2: 月
             name: '冷链系统日检',
             store: '永辉1店',
             date: '2017/10/16'
@@ -111,9 +111,12 @@
       }
     },
     components: {
-      Scroll
     },
     methods: {
+      handleItem () {
+        console.log(111)
+        this.$router.push('/inspectionStepOne')
+      }
     }
   }
 </script>
@@ -175,6 +178,18 @@
               background: #6FB788;
             }
 
+            .icon-anxious {
+              background: #E2742D;
+            }
+
+            .icon-in {
+              background: #D7AA31;
+            }
+
+            .icon-general {
+              background: #6FB788;
+            }
+
             .product {
               p {
                 font-family: SourceHanSansCN-Bold;
@@ -182,6 +197,7 @@
                 color: #707070;
                 letter-spacing: -0.58px;
                 margin: 0;
+                margin-bottom: 2px;
               }
 
               span {
@@ -214,11 +230,6 @@
               align-items: center;
             }
           }
-        }
-
-        &:hover {
-          opacity: 0.2;
-          background: #E2742D;
         }
 
         &:last-child {

@@ -31,8 +31,8 @@
         navList: [
           {
             icon: iconHome,
-            name: '区域首页',
-            url: '/storeIndexManager'
+            name: '门店首页',
+            url: '/storeIndex'
           },
           {
             icon: iconTarget,
@@ -42,12 +42,12 @@
           {
             icon: iconRepair,
             name: '维修工单',
-            url: '/taskList/store'
+            url: '/repairOrders'
           },
           {
             icon: iconEquipment,
-            name: '门店列表',
-            url: '/storeList'
+            name: '设备列表',
+            url: '/deviceList'
           },
           {
             icon: iconMyaccount,
@@ -92,6 +92,7 @@
         font-family: SourceHanSansCN-Normal;
         font-size: 10px;
         color: #FFFFFF;
+        margin-top: 3px;
         display: block;
       }
     }
