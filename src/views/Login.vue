@@ -104,12 +104,13 @@
         .username, .password {
           width: 100%;
           border-bottom: 1px solid #D0D0D0;
-          display: box;
-          display: flex;
           height: 0.46rem;
-          align-items: center;
-          box-pack: center;
-          box-align: center;
+          font-size: 12px;
+
+          img {
+            vertical-align: middle;
+            margin-top: 0.13rem;
+          }
 
           input {
             margin-left: 0.275rem;
@@ -121,6 +122,8 @@
             color: #fff;
             border: 0;
             outline: none;
+            vertical-align: middle;
+            margin-top: 0.13rem;
           }
         }
 

@@ -6,12 +6,7 @@
     </div>
     <div class="scan-content">
       <div class="scan-wrapper">
-<<<<<<< HEAD
-        <div class="scan-box">
-
-=======
         <div class="scan-box" id="myImage">
->>>>>>> feat(dist): modify build dist
         </div>
         <p>对准签到处的二维码</p>
       </div>
