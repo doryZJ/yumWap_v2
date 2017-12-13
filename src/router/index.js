@@ -15,6 +15,11 @@ import MaintenanceDetail from '@/views/MaintenanceDetail'
 import InspectionOrders from '@/views/InspectionOrders'
 import RepairOrders from '@/views/RepairOrders'
 import InspectionStepOne from '@/views/InspectionStepOne'
+import InspectionStepTwo from '@/views/InspectionStepTwo'
+import InspectionStepThree from '@/views/InspectionStepThree'
+import InspectionStepFour from '@/views/InspectionStepFour'
+import InspectionSubmit from '@/views/InspectionSubmit'
+import MaintenanceApplication from '@/views/MaintenanceApplication'
 
 Vue.use(Router)
 
@@ -95,6 +100,31 @@ const router = new Router({
       path: '/inspectionStepOne',
       name: 'InspectionStepOne',
       component: InspectionStepOne
+    },
+    {
+      path: '/inspectionStepTwo',
+      name: 'InspectionStepTwo',
+      component: InspectionStepTwo
+    },
+    {
+      path: '/inspectionStepThree',
+      name: 'InspectionStepThree',
+      component: InspectionStepThree
+    },
+    {
+      path: '/inspectionStepFour',
+      name: 'InspectionStepFour',
+      component: InspectionStepFour
+    },
+    {
+      path: '/inspectionSubmit',
+      name: 'InspectionSubmit',
+      component: InspectionSubmit
+    },
+    {
+      path: '/maintenanceApplication',
+      name: 'MaintenanceApplication',
+      component: MaintenanceApplication
     }
   ]
 })

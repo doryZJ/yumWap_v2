@@ -257,11 +257,6 @@
           }
         }
 
-        &:hover {
-          opacity: 0.2;
-          background: #E2742D;
-        }
-
         &:last-child {
           .item {
             border-bottom: 0;

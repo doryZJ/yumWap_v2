@@ -1,36 +1,39 @@
 <template>
   <div class="inspectionList">
-    <ul>
-      <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
-        <div class="item">
-          <div class="item-left">
-            <span class="icon" v-show="item.state === 0">日</span>
-            <span class="icon" v-show="item.state === 1">周</span>
-            <span class="icon" v-show="item.state === 2">月</span>
-            <span class="icon icon-anxious" v-show="item.state === 3">急</span>
-            <span class="icon icon-in" v-show="item.state === 4">中</span>
-            <span class="icon icon-general" v-show="item.state === 5">普</span>
-            <div class="product">
-              <p>{{item.name}}</p>
-              <span>{{item.store}}</span>
-            </div>
-          </div>
-          <div class="item-right">
-            <div class="modulus">
-              <div class="setup" v-show="item.date">
-                {{item.date}}
+    <scroll class="list-wrapper">
+      <ul>
+        <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
+          <div class="item">
+            <div class="item-left">
+              <span class="icon" v-show="item.state === 0">日</span>
+              <span class="icon" v-show="item.state === 1">周</span>
+              <span class="icon" v-show="item.state === 2">月</span>
+              <span class="icon icon-anxious" v-show="item.state === 3">急</span>
+              <span class="icon icon-in" v-show="item.state === 4">中</span>
+              <span class="icon icon-general" v-show="item.state === 5">普</span>
+              <div class="product">
+                <p>{{item.name}}</p>
+                <span>{{item.store}}</span>
               </div>
             </div>
-            <div class="warning">
-              <img src="../assets/images/Gray Copy 12.png" alt="">
+            <div class="item-right">
+              <div class="modulus">
+                <div class="setup" v-show="item.date">
+                  {{item.date}}
+                </div>
+              </div>
+              <div class="warning">
+                <img src="../assets/images/Gray Copy 12.png" alt="">
+              </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </scroll>
   </div>
 </template>
 <script>
+  import Scroll from './Scroll'
   export default {
     data () {
       return {
@@ -111,10 +114,11 @@
       }
     },
     components: {
+      Scroll
     },
     methods: {
       handleItem () {
-        console.log(111)
+        console.log('111')
         this.$router.push('/inspectionStepOne')
       }
     }
@@ -124,7 +128,7 @@
   .inspectionList {
     margin-top: 0.35rem;
     font-size: 0;
-    height: calc(100% - 1.63rem);
+    height: calc(100% - 1.9rem);
 
     .list-wrapper {
       width: 100%;

@@ -1,21 +1,21 @@
 <template>
   <div class="InspectionStep">
-    <div class="step-wrapper step1-wrapper">
+    <div class="step-wrapper step1-wrapper" :class="{'step-wrapper-active': step === 1}">
       <div class="step-num">1</div>
       <div class="step-name">检查冷柜</div>
     </div>
     <div class="step-separation step-separation1"></div>
-    <div class="step-wrapper">
+    <div class="step-wrapper" :class="{'step-wrapper-active': step === 2}">
       <div class="step-num">2</div>
       <div class="step-name">检查机组</div>
     </div>
     <div class="step-separation step-separation2"></div>
-    <div class="step-wrapper">
+    <div class="step-wrapper" :class="{'step-wrapper-active': step === 3}">
       <div class="step-num">3</div>
       <div class="step-name">外围设备</div>
     </div>
     <div class="step-separation step-separation3"></div>
-    <div class="step-wrapper">
+    <div class="step-wrapper" :class="{'step-wrapper-active': step === 4}">
       <div class="step-num">4</div>
       <div class="step-name">生成报告</div>
     </div>
@@ -33,10 +33,12 @@
 </script>
 <style lang="scss">
   .InspectionStep {
-    margin: 0.2rem 0.35rem;
+    margin: 0.2rem 0.32rem;
+    height: 0.54rem;
     position: relative;
 
     &::after {
+      content: '';
       clear: both;
     }
 

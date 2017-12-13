@@ -14,6 +14,10 @@
       refreshDelay: {
         type: Number,
         default: 20
+      },
+      click: {
+        type: Boolean,
+        default: true
       }
     },
     mounted () {
@@ -28,7 +32,8 @@
           return
         }
         this.scroll = new BScroll(elWrapper, {
-          probeType: this.probeType
+          probeType: this.probeType,
+          click: this.click
         })
       }
     }

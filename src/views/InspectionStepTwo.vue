@@ -1,42 +1,30 @@
 <template>
-  <div class="inspectionStepOne">
+  <div class="inspectionStepTwo">
     <div class="title">
       <div class="back" @click="goBack"><返回</div>
       <span>巡检工单</span>
     </div>
-    <inspection-step></inspection-step>
-    <div class="device-wrapper">
+    <inspection-step :step="step"></inspection-step>
+    <div class="crew-wrapper">
       <div class="head">
-        低温冷柜
+        低温机组
       </div>
-      <div class="device-list">
+      <div class="crew-list">
         <ul>
           <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
+            <crew-item :item="item"></crew-item>
           </li>
         </ul>
       </div>
     </div>
-    <div class="device-wrapper">
+    <div class="crew-wrapper">
       <div class="head">
-        低温冷柜
+        中温机组
       </div>
-      <div class="device-list">
+      <div class="crew-list">
         <ul>
           <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="device-wrapper">
-      <div class="head">
-        低温冷柜
-      </div>
-      <div class="device-list">
-        <ul>
-          <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
+            <crew-item :item="item"></crew-item>
           </li>
         </ul>
       </div>
@@ -48,46 +36,63 @@
 </template>
 <script>
   import InspectionStep from '@/components/InspectionStep'
-  import DeviceItem from '@/components/DeviceItem'
+  import CrewItem from '@/components/CrewItem'
   export default {
     data () {
       return {
+        step: 2,
         list: [
           {
-            state: 0, // 0: 运行，1: 待机，2: 关闭，3: 低，4: 中，5: 高
-            name: '工作台冷藏冰箱',
-            model: 'WTC-CS-800',
-            modulus: '温度：4.1℃',
-            variety: 1, // 0:上升，1: 下降
-            setup: '设定：4.0℃'
+            name1: '吸气压力',
+            num1: 56,
+            name2: '排气温度-2',
+            num2: 56,
+            warning1: false,
+            warning2: false
           },
           {
-            state: 1, // 0: 运行，1: 待机，2: 关闭，3: 低，4: 中，5: 高
-            name: '冷冻冰箱',
-            model: 'WTC-CS-800',
-            modulus: '温度：-11.8℃',
-            variety: 1, // 0:上升，1: 下降
-            setup: '设定：-12.0℃'
+            name1: '排气压力',
+            num1: 7,
+            name2: '排气温度-3',
+            num2: 7,
+            warning1: false,
+            warning2: false
+          },
+          {
+            name1: '吸气温度',
+            num1: 12,
+            name2: '过冷温度',
+            num2: 12,
+            warning1: true,
+            warning2: false
+          },
+          {
+            name1: '排气温度-1',
+            num1: 34,
+            name2: '出液温度',
+            num2: 34,
+            warning1: false,
+            warning2: true
           }
         ]
       }
     },
     components: {
       InspectionStep,
-      DeviceItem
+      CrewItem
     },
     methods: {
       goBack () {
         this.$router.go(-1)
       },
       handleNext () {
-        this.$router.push('/inspectionStepTwo')
+        this.$router.push('./inspectionStepThree')
       }
     }
   }
 </script>
 <style lang="scss">
-  .inspectionStepOne{
+  .inspectionStepTwo {
     background: #F4F8FB;
     width: 100%;
     min-height: 100%;
@@ -113,7 +118,7 @@
       }
     }
 
-    .device-wrapper {
+    .crew-wrapper {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
         font-family: SourceHanSansCN-Bold;
@@ -122,15 +127,15 @@
         letter-spacing: -0.58px;
       }
 
-      .device-list {
-        margin: 0;
-        padding: 0;
-        background: #fff;
+      .crew-list {
+        ul {
+          padding: 6px 18px;
+          background-color: #fff;
 
-        li {
-          padding-left: 0.16rem;
-          height: 0.6rem;
-          position: relative;
+          li {
+            margin-bottom: 8px;
+            font-size: 12px;
+          }
         }
       }
     }
