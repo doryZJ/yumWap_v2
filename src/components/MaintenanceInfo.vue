@@ -82,6 +82,7 @@
           border-bottom: 1px solid #C8C7CC;
           display: flex;
           justify-content: space-between;
+          font-size: 12px;
 
           .content-title {
             min-height: 0.32rem;

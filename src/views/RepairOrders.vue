@@ -8,12 +8,12 @@
       <div class="tab" :class='{"active": tabActive === 1}' @click="handleTab(1)">待维修</div>
       <div class="tab" :class='{"active": tabActive === 2}' @click="handleTab(2)">已完成</div>
     </div>
-    <inspection-List></inspection-List>
+    <repair-List></repair-List>
     <y-footer :nav="footerNav"></y-footer>
   </div>
 </template>
 <script>
-  import InspectionList from '@/components/InspectionList'
+  import RepairList from '@/components/RepairList'
   import YFooter from '@/components/Footer'
   export default {
     data () {
@@ -23,7 +23,7 @@
       }
     },
     components: {
-      InspectionList,
+      RepairList,
       YFooter
     },
     methods: {
@@ -56,7 +56,8 @@
       height: 0.3rem;
       border: 1px solid #00BFB3;
       border-radius: 4px;
-      box-sizing: border-box;
+      box-sizing: content-box;
+      background: #fff;
 
       &:after {
         content: '';

@@ -56,6 +56,7 @@
       border: 1px solid #00BFB3;
       border-radius: 4px;
       box-sizing: content-box;
+      background: #fff;
 
       &:after {
         content: '';
@@ -72,7 +73,6 @@
         height: 0.3rem;
         line-height: 0.3rem;
         float: left;
-        background: #fff;
       }
 
       .active {

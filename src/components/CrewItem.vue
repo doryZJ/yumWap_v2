@@ -5,8 +5,8 @@
       <span class="num1">
         {{item.num1}}
       </span>
-      <img src="../assets/images/icon_triangle_up_6x6.png" v-show="item.warning1" alt="">
-      <img src="../assets/images/icon_triangle_down_6x6.png" v-show="item.warning2"alt="">
+      <img src="../assets/images/wran_orange@2x.png" v-show="item.warning1" alt="">
+      <img src="../assets/images/warn_red@2x.png" v-show="item.warning2"alt="">
     </div>
     <div class="right">
       <span class="name2">{{item.name2}}</span>
@@ -38,6 +38,13 @@
     .left {
       width: 60%;
       float: left;
+
+      img {
+        width: 14px;
+        height: 13px;
+        display: inline-block;
+        margin-left: 5px;
+      }
     }
 
     .right {

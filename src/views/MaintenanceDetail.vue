@@ -1,7 +1,7 @@
 <template>
   <div class="maintenanceDetail">
     <div class="title">
-      <div class="back"><返回</div>
+      <div class="back" @click="goBack"><返回</div>
       <span>肯德基洛川店-日常保养</span>
     </div>
     <ticket-info></ticket-info>
@@ -62,6 +62,9 @@
       MaintenanceFooter
     },
     methods: {
+      goBack () {
+        this.$router.go(-1)
+      },
       handleScanQRcode () {
         this.$router.push('/scanQRcode')
       }
@@ -78,13 +81,11 @@
 
     .title {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
+      text-align: center;
 
       .back {
         font-family: SourceHanSansCN-Normal;
@@ -94,6 +95,7 @@
         margin-left: 0.1rem;
         position: absolute;
         left: 0.1rem;
+        line-height: 28px;
       }
     }
 

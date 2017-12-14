@@ -20,6 +20,7 @@ import InspectionStepThree from '@/views/InspectionStepThree'
 import InspectionStepFour from '@/views/InspectionStepFour'
 import InspectionSubmit from '@/views/InspectionSubmit'
 import MaintenanceApplication from '@/views/MaintenanceApplication'
+import PartLibrary from '@/views/PartLibrary'
 
 Vue.use(Router)
 
@@ -125,6 +126,11 @@ const router = new Router({
       path: '/maintenanceApplication',
       name: 'MaintenanceApplication',
       component: MaintenanceApplication
+    },
+    {
+      path: '/partLibrary',
+      name: 'PartLibrary',
+      component: PartLibrary
     }
   ]
 })

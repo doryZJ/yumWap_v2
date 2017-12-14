@@ -50,8 +50,8 @@
             <span class="count">{{item.price}}元/个  x {{item.count}}</span>
           </li>
           <li>
-            <img src="../assets/images/icon_add_12x12 copy 2.png" alt="">
-            <span class="addParts">新增零件</span>
+            <img src="../assets/images/add_small@2x.png" alt="">
+            <span class="addParts" @click="addParts">新增零件</span>
           </li>
         </ul>
       </div>
@@ -61,7 +61,7 @@
       <textarea class="remark"></textarea>
     </div>
     <div class="btn-wrapper">
-      <div class="btn" @click="handleCreate">创 建</div>
+      <div class="btn">创 建</div>
     </div>
   </div>
 </template>
@@ -97,7 +97,10 @@
         this.sheetVisible = true
       },
       selectSort (val) {
-        this.urgentSelected = val
+        this.urgentSelected = val.name
+      },
+      addParts () {
+        this.$router.push('/partLibrary')
       }
     },
     mounted () {
@@ -269,6 +272,7 @@
               height: 14px;
               display: inline-block;
               margin-right: 6px;
+              vertical-align: middle;
             }
 
             .addParts {
@@ -276,6 +280,7 @@
               font-size: 12px;
               color: #1792E5;
               letter-spacing: -0.5px;
+              vertical-align: middle;
             }
           }
         }
@@ -299,6 +304,8 @@
         background: #fff;
         box-sizing: border-box;
         resize: none;
+        border: 0;
+        outline: 0;
       }
     }
 

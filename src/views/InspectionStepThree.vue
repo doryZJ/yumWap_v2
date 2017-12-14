@@ -45,7 +45,7 @@
           </div>
           <div class="desc-wrapper">
             <textarea name="" id="desc">描述（可选）</textarea>
-            <img src="../assets/images/camera@2x.png" alt="">
+            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
       </div>
@@ -131,7 +131,11 @@ export default {
       select2: 0, // 0:通过，1:不通过
       select3: 0, // 0:通过，1:不通过
       select4: 0, // 0:通过，1:不通过
-      select5: 0 // 0:通过，1:不通过
+      select5: 0, // 0:通过，1:不通过
+      // PHOTOLIBRARY 或 0 打开照片库
+      // CAMERA 或 1 打开本机相机
+      // SAVEDPHOTOALBUM 或 2 打开已保存的相册e
+      mySourceType: 1
     }
   },
   components: {
@@ -165,6 +169,21 @@ export default {
           this.select5 = val
           break
       }
+    },
+    handleCamera () {
+      /*eslint-disable*/
+      navigator.camera.getPicture(this.onSuccess, this.onFail, {
+        quality: 50,
+        destinationType: Camera.DestinationType.DATA_URL,
+        encodingType: Camera.EncodingType.JPEG,
+        sourceType: this.mySourceType
+      })
+      /*eslint-enable*/
+    },
+    onSuccess (val) {
+      alert(val)
+    },
+    onFail () {
     }
   }
 }
@@ -288,6 +307,8 @@ export default {
               font-size: 12px;
               color: #BDBDBD;
               letter-spacing: -0.5px;
+              border: 0;
+              outline: 0;
             }
 
             img {
