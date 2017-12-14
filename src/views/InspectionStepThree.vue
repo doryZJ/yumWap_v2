@@ -281,7 +281,7 @@ export default {
 
             textarea {
               width: 2.38rem;
-              height: 0.29rem;
+              height: 0.45rem;
               display: inline-block;
               resize: none;
               font-family: SourceHanSansCN-Normal;
@@ -295,7 +295,8 @@ export default {
               height: 0.32rem;
               display: inline-block;
               position: absolute;
-              top: 0.13rem;
+              top: 0.14rem;
+              right: 0.2rem;
             }
           }
         }

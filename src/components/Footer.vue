@@ -19,13 +19,14 @@
   import iconTargetOn from '@/assets/images/icon_target_on_24x24.png'
   import iconEquipmentOn from '@/assets/images/icon_equipment_on_24x22.png'
   import iconMyaccountOn from '@/assets/images/icon_myaccount_on_24x23.png'
-  
+  import iconRepairOff from '@/assets/images/icon_repair_off@2x.png'
+  import iconRepairOn from '@/assets/images/icon_repair_on@2x.png'
   export default {
     data () {
       const iconHome = this.nav === 0 ? iconHomeOn : iconHomeOff
       const iconTarget = this.nav === 1 ? iconTargetOn : iconTargetOff
-      const iconEquipment = this.nav === 2 ? iconEquipmentOn : iconEquipmentOff
-      const iconRepair = this.nav === 3 ? iconEquipmentOn : iconEquipmentOff
+      const iconRepair = this.nav === 2 ? iconRepairOn : iconRepairOff
+      const iconEquipment = this.nav === 3 ? iconEquipmentOn : iconEquipmentOff
       const iconMyaccount = this.nav === 4 ? iconMyaccountOn : iconMyaccountOff
       return {
         navList: [

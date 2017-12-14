@@ -33,7 +33,7 @@
 </script>
 <style lang="scss">
   .InspectionStep {
-    margin: 0.2rem 0.32rem;
+    margin: 0.2rem 0rem;
     height: 0.54rem;
     position: relative;
 

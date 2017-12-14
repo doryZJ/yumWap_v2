@@ -20,7 +20,7 @@
     data () {
       return {
         pageType: 1,
-        footerNav: 2,
+        footerNav: 0,
         energyType: 0,
         infoType: 1,
         maintenanceType: 2,

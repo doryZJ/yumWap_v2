@@ -19,7 +19,7 @@
   export default {
     data () {
       return {
-        footerNav: 2,
+        footerNav: 3,
         sortName: '类别',
         sheetVisible: false,
         closeOnClickModal: true,

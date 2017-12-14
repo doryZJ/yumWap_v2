@@ -37,10 +37,31 @@
       </div>
     </div>
     <div class="repair-wrapper">
-      <div class="head clearfix">
-        <span class="name">维修明细</span>
-        <span class="edit">编辑</span>
+      <div class="head">
+        <div class="clearfix">
+          <span class="name">维修明细</span>
+          <span class="edit">编辑</span>
+        </div>
       </div>
+      <div class="repair-list">
+        <ul>
+          <li class="clearfix" v-for="(item, index) in repairList" :key="index">
+            <span class="name">{{item.name}}</span>
+            <span class="count">{{item.price}}元/个  x {{item.count}}</span>
+          </li>
+          <li>
+            <img src="../assets/images/icon_add_12x12 copy 2.png" alt="">
+            <span class="addParts">新增零件</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="remark-wrapper">
+      <div class="head">备注</div>
+      <textarea class="remark"></textarea>
+    </div>
+    <div class="btn-wrapper">
+      <div class="btn" @click="handleCreate">创 建</div>
     </div>
   </div>
 </template>
@@ -53,7 +74,19 @@
         source: '日检',
         urgentSelected: '一般',
         sheetVisible: false,
-        actions: []
+        actions: [],
+        repairList: [
+          {
+            name: '气缸阀板密封垫床',
+            price: 100,
+            count: 1
+          },
+          {
+            name: '气缸阀板密封垫床',
+            price: 10,
+            count: 2
+          }
+        ]
       }
     },
     methods: {
@@ -185,6 +218,7 @@
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
+        height: 14px;
 
         .name {
           font-family: SourceHanSansCN-Bold;
@@ -201,6 +235,94 @@
           letter-spacing: -0.5px;
           float: right;
         }
+      }
+
+      .repair-list {
+        background: #fff;
+
+        ul {
+          padding-left: 20px;
+
+          li {
+            padding: 13px;
+            border-bottom: 1px solid #C8C7CC;
+            font-size: 12px;
+            height: 16px;
+            .name {
+              float: left;
+              font-family: SourceHanSansCN-Normal;
+              font-size: 14px;
+              color: #707070;
+              letter-spacing: -0.58px;
+            }
+
+            .count {
+              float: right;
+              font-family: SourceHanSansCN-Normal;
+              font-size: 14px;
+              color: #688BA6;
+              letter-spacing: -0.58px;
+            }
+
+            img {
+              width: 14px;
+              height: 14px;
+              display: inline-block;
+              margin-right: 6px;
+            }
+
+            .addParts {
+              font-family: SourceHanSansCN-Normal;
+              font-size: 12px;
+              color: #1792E5;
+              letter-spacing: -0.5px;
+            }
+          }
+        }
+      }
+    }
+
+    .remark-wrapper {
+      .head {
+        margin: 0.28rem 0 0.16rem 0.16rem;
+        font-family: SourceHanSansCN-Bold;
+        font-size: 14px;
+        color: #707070;
+        letter-spacing: -0.58px;
+      }
+
+      .remark {
+        width: 100%;
+        height: 1.08rem;
+        padding: 10px 20px;
+        font-size: 14px;
+        background: #fff;
+        box-sizing: border-box;
+        resize: none;
+      }
+    }
+
+    .btn-wrapper {
+      height: 0.5rem;
+      padding: 0.3rem 0 0.2rem 0;
+
+      &::after {
+        content: '';
+        clear: both;
+      }
+
+      .btn {
+        width: 1.37rem;
+        height: 0.5rem;
+        background: #1792E5;
+        line-height: 0.5rem;
+        text-align: center;
+        font-family: SourceHanSansCN-Regular;
+        font-size: 16px;
+        color: #FFFFFF;
+        letter-spacing: -0.89px;
+        float: right;
+        margin: 0 0.2rem 0 0;
       }
     }
   }
