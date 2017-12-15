@@ -66,7 +66,6 @@
 
       input {
         flex: 1;
-        font-family: SourceHanSansCN-Normal;
         font-size: 16px;
         color: #8D8D94;
         letter-spacing: -0.5px;
@@ -100,7 +99,6 @@
           width: 100%;
           height: 0.44rem;
           border-bottom: 1px solid #AAAAAA;
-          font-family: SourceHanSansCN-Normal;
           font-size: 17px;
           color: #000000;
           letter-spacing: -0.3px;

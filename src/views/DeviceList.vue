@@ -63,7 +63,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
@@ -87,7 +86,6 @@
       }
 
       span {
-        font-family: SourceHanSansCN-Normal;
         font-size: 12px;
         color: #707070;
       }

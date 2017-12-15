@@ -71,14 +71,12 @@
 
     .title {
       position: relative;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
       text-align: center;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -103,7 +101,6 @@
         vertical-align: middle;
       }
       span {
-        font-family: SourceHanSansCN-Medium;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: 0.08px;
@@ -116,7 +113,6 @@
     .basicInfo {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
-        font-family: SourceHanSansCN-Bold;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -127,7 +123,6 @@
         background: #fff;
 
         .info {
-          margin-bottom: 12px;
           height: 28px;;
 
           &::after {
@@ -136,7 +131,6 @@
           }
 
           .label {
-            font-family: SourceHanSansCN-Light;
             font-size: 14px;
             color: #707070;
             letter-spacing: -0.58px;
@@ -145,7 +139,6 @@
           }
 
           .value {
-            font-family: SourceHanSansCN-Regular;
             font-size: 14px;
             color: #688BA6;
             letter-spacing: -0.58px;
@@ -160,7 +153,6 @@
     .fault-wrapper {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
-        font-family: SourceHanSansCN-Bold;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -171,11 +163,11 @@
         background: #fff;
 
         p {
-          font-family: SourceHanSansCN-Light;
           font-size: 14px;
           color: #707070;
           letter-spacing: -0.58px;
           line-height: 28px;
+          margin: 0;
         }
       }
     }
@@ -201,7 +193,6 @@
         border: 1px solid #1792E5;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #1792E5;
         letter-spacing: -0.89px;
@@ -214,7 +205,6 @@
         border: 1px solid #1792E5;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.89px;

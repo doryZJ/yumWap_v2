@@ -66,7 +66,6 @@
       margin: 0.16rem 0;
       padding-left: 20px;
       text-align: left;
-      font-family: SourceHanSansCN-Bold;
       font-size: 12px;
       color: #707070;
       letter-spacing: -0.5px;
@@ -95,7 +94,6 @@
             }
 
             span {
-              font-family: SourceHanSansCN-Normal;
               font-size: 12px;
               color: #707070;
               letter-spacing: -0.5px;
@@ -125,14 +123,12 @@
               text-align: right;
 
               .state {
-                font-family: SourceHanSansCN-Bold;
                 font-size: 14px;
                 color: #6FB788;
                 letter-spacing: -0.58px;
               }
 
               .time {
-                font-family: HoneywellSans-Light;
                 font-size: 10px;
                 color: #707070;
                 letter-spacing: -0.42px;

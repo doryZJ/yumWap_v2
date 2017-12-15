@@ -1,50 +1,52 @@
 <template>
-  <div class="inspectionStepOne">
-    <div class="title">
-      <div class="back" @click="goBack"><返回</div>
-      <span>巡检工单</span>
+  <transition name="slide">
+    <div class="inspectionStepOne">
+      <div class="title">
+        <div class="back" @click="goBack"><返回</div>
+        <span>巡检工单</span>
+      </div>
+      <inspection-step></inspection-step>
+      <div class="device-wrapper">
+        <div class="head">
+          低温冷柜
+        </div>
+        <div class="device-list">
+          <ul>
+            <li v-for="(item, index) in list" :key="index">
+              <device-item :item="item"></device-item>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="device-wrapper">
+        <div class="head">
+          低温冷柜
+        </div>
+        <div class="device-list">
+          <ul>
+            <li v-for="(item, index) in list" :key="index">
+              <device-item :item="item"></device-item>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="device-wrapper">
+        <div class="head">
+          低温冷柜
+        </div>
+        <div class="device-list">
+          <ul>
+            <li v-for="(item, index) in list" :key="index">
+              <device-item :item="item"></device-item>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="btn-wrapper">
+        <div class="btn" @click="handleNext">下一步</div>
+      </div>
     </div>
-    <inspection-step></inspection-step>
-    <div class="device-wrapper">
-      <div class="head">
-        低温冷柜
-      </div>
-      <div class="device-list">
-        <ul>
-          <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="device-wrapper">
-      <div class="head">
-        低温冷柜
-      </div>
-      <div class="device-list">
-        <ul>
-          <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="device-wrapper">
-      <div class="head">
-        低温冷柜
-      </div>
-      <div class="device-list">
-        <ul>
-          <li v-for="(item, index) in list" :key="index">
-            <device-item :item="item"></device-item>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="btn-wrapper">
-      <div class="btn" @click="handleNext">下一步</div>
-    </div>
-  </div>
+  </transition>
 </template>
 <script>
   import InspectionStep from '@/components/InspectionStep'
@@ -95,14 +97,12 @@
 
     .title {
       position: relative;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
       text-align: center;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -116,7 +116,6 @@
     .device-wrapper {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
-        font-family: SourceHanSansCN-Bold;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -150,7 +149,6 @@
         background: #1792E5;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.89px;
@@ -158,5 +156,13 @@
         margin: 0 0.2rem 0 0;
       }
     }
+  }
+
+  .slide-enter-active, .slide-leave-active {
+    transition: all .5s;
+  }
+  .slide-enter /* .fade-leave-active in below version 2.1.8 */ {
+    transform: translateX(100%);
+    opacity: 1;
   }
 </style>

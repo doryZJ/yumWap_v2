@@ -1,6 +1,6 @@
 <template>
   <div class="inspectionList">
-    <scroll class="list-wrapper">
+    <!-- <scroll class="list-wrapper"> -->
       <div class="list-date">{{date[0]}}</div>
       <ul>
         <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
@@ -13,11 +13,11 @@
           <inspection-item :item="item"></inspection-item>
         </li>
       </ul>
-    </scroll>
+    <!-- </scroll> -->
   </div>
 </template>
 <script>
-  import Scroll from './Scroll'
+  // import Scroll from './Scroll'
   import InspectionItem from './InspectionItem'
   export default {
     data () {
@@ -49,7 +49,7 @@
       }
     },
     components: {
-      Scroll,
+      // Scroll,
       InspectionItem
     },
     methods: {
@@ -71,14 +71,13 @@
       background: #F4F8FB;
       position: relative;
       overflow: hidden;
+    }
 
-      .list-date {
-        padding: 13px 0 13px 18px;
-        font-family: SourceHanSansCN-Bold;
-        font-size: 14px;
-        color: #707070;
-        letter-spacing: -0.58px;
-      }
+    .list-date {
+      padding: 13px 0 13px 18px;
+      font-size: 14px;
+      color: #707070;
+      letter-spacing: -0.58px;
     }
 
     ul {
@@ -117,7 +116,6 @@
               text-align: center;
               margin-right: 0.1rem;
               display: inline-block;
-              font-family: SourceHanSansCN-Bold;
               font-size: 0.18rem;
               color: #FFFFFF;
               letter-spacing: -0.75px;
@@ -141,7 +139,6 @@
 
             .product {
               p {
-                font-family: SourceHanSansCN-Bold;
                 font-size: 14px;
                 color: #707070;
                 letter-spacing: -0.58px;
@@ -150,7 +147,6 @@
               }
 
               span {
-                font-family: HoneywellSans-Light;
                 font-size: 12px;
                 color: #707070;
                 letter-spacing: -0.5px;
@@ -165,7 +161,6 @@
             .modulus {
 
               .setup {
-                font-family: SourceHanSansCN-Light;
                 font-size: 12px;
                 color: #698CA7;
                 letter-spacing: -0.5px;

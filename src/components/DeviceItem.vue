@@ -70,7 +70,6 @@
           float: left;
 
           p {
-            font-family: SourceHanSansCN-Bold;
             font-size: 14px;
             color: #707070;
             letter-spacing: -0.58px;
@@ -78,7 +77,6 @@
           }
 
           span {
-            font-family: HoneywellSans-Light;
             font-size: 12px;
             color: #707070;
             letter-spacing: -0.5px;
@@ -98,7 +96,6 @@
             align-items: center;
 
             span {
-              font-family: PingFangSC-Semibold;
               font-size: 14px;
               color: #707070;
               letter-spacing: -0.58px;
@@ -114,10 +111,10 @@
           }
 
           .setup {
-            font-family: SourceHanSansCN-Light;
             font-size: 12px;
             color: #698CA7;
             letter-spacing: -0.5px;
+            text-align: right;
           }
         }
 

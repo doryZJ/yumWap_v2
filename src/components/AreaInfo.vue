@@ -44,7 +44,6 @@
       font-size: 12px;
 
       span {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.25px;

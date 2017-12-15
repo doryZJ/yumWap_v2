@@ -124,7 +124,6 @@ export default {
       margin: 0.16rem 0;
       padding-left: 20px;
       text-align: left;
-      font-family: SourceHanSansCN-Bold;
       font-size: 12px;
       color: #707070;
       letter-spacing: -0.5px;
@@ -143,14 +142,12 @@ export default {
           justify-content: space-between;
 
           .label {
-            font-family: SourceHanSansCN-Normal;
             font-size: 12px;
             color: #707070;
             letter-spacing: -0.5px;
           }
 
           .value {
-            font-family: SourceHanSansCN-Normal;
             font-size: 12px;
             color: #688BA6;
             letter-spacing: -0.5px;

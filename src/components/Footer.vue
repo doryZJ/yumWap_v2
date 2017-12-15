@@ -90,7 +90,6 @@
       span {
         flex: 1;
         opacity: 0.5;
-        font-family: SourceHanSansCN-Normal;
         font-size: 10px;
         color: #FFFFFF;
         margin-top: 3px;

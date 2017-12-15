@@ -1,6 +1,6 @@
 <template>
   <div class="inspectionList">
-    <scroll class="list-wrapper">
+    <!-- <scroll class="list-wrapper"> -->
       <div class="list-date">{{date[0]}}</div>
       <ul>
         <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
@@ -13,11 +13,11 @@
           <inspection-item :item="item"></inspection-item>
         </li>
       </ul>
-    </scroll>
+    <!-- </scroll> -->
   </div>
 </template>
 <script>
-  import Scroll from './Scroll'
+  // import Scroll from './Scroll'
   import InspectionItem from './InspectionItem'
   export default {
     data () {
@@ -49,7 +49,7 @@
       }
     },
     components: {
-      Scroll,
+      // Scroll,
       InspectionItem
     },
     methods: {
@@ -61,7 +61,7 @@
 </script>
 <style lang="scss">
   .inspectionList {
-    margin-top: 0.35rem;
+    margin-top: 0.11rem;
     font-size: 0;
     height: calc(100% - 1.9rem);
 
@@ -71,14 +71,13 @@
       background: #F4F8FB;
       position: relative;
       overflow: hidden;
+    }
 
-      .list-date {
-        padding: 13px 0 13px 18px;
-        font-family: SourceHanSansCN-Bold;
-        font-size: 14px;
-        color: #707070;
-        letter-spacing: -0.58px;
-      }
+    .list-date {
+      padding: 13px 0 13px 18px;
+      font-size: 14px;
+      color: #707070;
+      letter-spacing: -0.58px;
     }
 
     ul {
@@ -90,96 +89,6 @@
         padding-left: 0.16rem;
         height: 0.6rem;
         position: relative;
-
-        .item {
-          padding: 0.12rem 0;
-          border-bottom: 1px solid #C8C7CC;
-          display: flex;
-          height: 0.36rem;
-          justify-content: space-between;
-          font-size: 0;
-
-          .item-left {
-            display: flex;
-
-            img {
-              margin-right: 0.1rem;
-              width: 36px;
-              height: 33px;
-            }
-
-            .icon {
-              width: 36px;
-              height: 36px;
-              border-radius: 50%;
-              background: #6FB788;
-              line-height: 36px;
-              text-align: center;
-              margin-right: 0.1rem;
-              display: inline-block;
-              font-family: SourceHanSansCN-Bold;
-              font-size: 0.18rem;
-              color: #FFFFFF;
-              letter-spacing: -0.75px;
-            }
-
-            .icon-active {
-              background: #6FB788;
-            }
-
-            .icon-anxious {
-              background: #E2742D;
-            }
-
-            .icon-in {
-              background: #D7AA31;
-            }
-
-            .icon-general {
-              background: #6FB788;
-            }
-
-            .product {
-              p {
-                font-family: SourceHanSansCN-Bold;
-                font-size: 14px;
-                color: #707070;
-                letter-spacing: -0.58px;
-                margin: 0;
-                margin-bottom: 2px;
-              }
-
-              span {
-                font-family: HoneywellSans-Light;
-                font-size: 12px;
-                color: #707070;
-                letter-spacing: -0.5px;
-              }
-            }
-          }
-
-          .item-right {
-            margin-right: 0.16rem;
-            display: flex;
-
-            .modulus {
-
-              .setup {
-                font-family: SourceHanSansCN-Light;
-                font-size: 12px;
-                color: #698CA7;
-                letter-spacing: -0.5px;
-                line-height: 0.36rem;
-              }
-            }
-
-            .warning {
-              margin-left: 0.2rem;
-              display: flex;
-              align-items: center;
-            }
-          }
-        }
 
         // &:last-child {
         //   .item {

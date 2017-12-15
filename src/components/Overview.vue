@@ -90,7 +90,6 @@
       }
 
       span {
-        font-family: SourceHanSansCN-Bold;
         font-size: 18px;
         color: #707070;
         margin-left: 5px;
@@ -110,7 +109,6 @@
         margin-bottom: 0.25rem;
 
         .name {
-          font-family: SourceHanSansCN-Normal;
           font-size: 0.14rem;
           display: block;
           color: #707070;
@@ -123,14 +121,12 @@
 
           p {
             vertical-align: bottom;
-            font-family: SourceHanSansCN-Normal;
             font-size: 12px;
             color: #707070;
             margin: 0;
             padding: 0;
 
             span {
-              font-family: HoneywellSans-Light;
               font-size: 36px;
               color: #707070;
               display: inline-block;
@@ -146,9 +142,8 @@
             position: absolute;
             right: 0;
             top: 0.43rem;
-            font-family: SourceHanSansCN-Light;
             font-size: 12px;
-            color: #2E2E2E;
+            color: #707070;
             letter-spacing: -0.5px;
             display: inline-block;
           }

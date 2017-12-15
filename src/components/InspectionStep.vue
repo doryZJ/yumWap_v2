@@ -55,7 +55,6 @@
         line-height: 0.24rem;
         border: 1px solid #00BFB3;
         border-radius: 50%;
-        font-family: HoneywellSans-Medium;
         font-size: 16px;
         color: #00BFB3;
         letter-spacing: -0.05px;
@@ -63,7 +62,6 @@
       }
 
       .step-name {
-        font-family: SourceHanSansCN-Light;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -78,18 +76,17 @@
     .step-wrapper-active {
       .step-num {
         background: #00BFB3;
-        font-family: HoneywellSans-Medium;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.05px;
       }
 
       .step-name {
-        font-family: SourceHanSansCN-Medium;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
         line-height: 28px;
+        font-weight: bold;
       }
     }
 

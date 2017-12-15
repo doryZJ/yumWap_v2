@@ -37,14 +37,13 @@
     width: 100%;
     height: 100%;
     background: #F4F8FB;
-    margin-bottom: 0.59rem;
+    padding-bottom: 0.59rem;
 
     .title {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
@@ -65,7 +64,6 @@
 
       .tab {
         width: 50%;
-        font-family: SourceHanSansCN-Medium;
         font-size: 13px;
         color: #00BFB3;
         letter-spacing: -0.08px;
@@ -77,7 +75,6 @@
 
       .active {
         background: #00BFB3;
-        font-family: SourceHanSansCN-Medium;
         font-size: 13px;
         color: #FFFFFF;
         letter-spacing: -0.08px;

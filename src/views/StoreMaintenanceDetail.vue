@@ -40,13 +40,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -66,7 +64,6 @@
         width: 2.56rem;
         height: 100%;
         background: #A8B3C3;
-        font-family: SourceHanSansCN-Light;
         font-size: 0.18rem;
         margin: 0 auto;
         color: #FFFFFF;

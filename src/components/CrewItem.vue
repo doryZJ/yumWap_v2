@@ -52,7 +52,6 @@
       float: left;
     }
     .name1, .name2 {
-      font-family: SourceHanSansCN-Light;
       font-size: 14px;
       color: #707070;
       letter-spacing: -0.58px;
@@ -61,7 +60,6 @@
     }
 
     .num1, .num2 {
-      font-family: SourceHanSansCN-Regular;
       font-size: 14px;
       color: #688BA6;
       letter-spacing: -0.58px;

@@ -75,20 +75,18 @@
     width: 100%;
     min-height: 100%;
     height: auto;
-    margin-bottom: 0.59rem;
+    padding-bottom: 0.59rem;
 
     .title {
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;

@@ -68,13 +68,11 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #FFFFFF;
       padding: 0.12rem 0;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #fff;
         letter-spacing: 0;
@@ -101,7 +99,6 @@ export default {
         }
 
         p {
-          font-family: SourceHanSansCN-Normal;
           font-size: 0.18rem;
           margin-top: 10px;
           color: #FFFFFF;

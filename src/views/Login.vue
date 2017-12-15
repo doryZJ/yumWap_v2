@@ -56,7 +56,7 @@
       },
       handleLogin () {
         if (this.checkLogin()) {
-          this.$router.push('/areaIndex')
+          this.$router.push('/storeIndex')
         }
       },
       checkLogin () {

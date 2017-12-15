@@ -100,14 +100,12 @@
 
     .title {
       position: relative;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
       text-align: center;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -121,7 +119,6 @@
     .crew-wrapper {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
-        font-family: SourceHanSansCN-Bold;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -155,7 +152,6 @@
         background: #1792E5;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.89px;

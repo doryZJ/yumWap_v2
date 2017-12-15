@@ -115,7 +115,6 @@
         text-align: center;
 
         .count {
-          font-family: HoneywellSans-Light;
           font-size: 36px;
           color: #303030;
           letter-spacing: -0.56px;
@@ -124,7 +123,6 @@
         }
 
         .text {
-          font-family: SourceHanSansCN-Light;
           font-size: 12px;
           color: #303030;
           letter-spacing: -0.25px;
@@ -169,7 +167,6 @@
           .repairName {
             height: 24px;
             line-height: 24px;
-            font-family: SourceHanSansCN-Normal;
             font-size: 14px;
             color: #707070;
             line-height: 24px;
@@ -181,7 +178,6 @@
           .repairCount {
             height: 24px;
             line-height: 24px;
-            font-family: SourceHanSansCN-Normal;
             font-size: 14px;
             color: #707070;
             letter-spacing: -0.22px;

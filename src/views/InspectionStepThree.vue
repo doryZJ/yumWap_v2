@@ -19,7 +19,7 @@
               <el-select v-model="select1" placeholder="请选择">
                 <el-option
                   v-for="(item, index) in evaluateOptions"
-                  :key="item.index"
+                  :key="index"
                   :label="item.label"
                   :value="item.value">
                   <img :src="item.icon" alt="">
@@ -31,11 +31,11 @@
               <img src="../assets/images/edit@2x.png" v-show="!desc1Visible" alt="">
               <img src="../assets/images/delete@2x.png" v-show="desc1Visible" alt="">
               <span v-show="!desc1Visible">添加描述</span>
-              <span v-show="desc1Visible">删除描述</span>
+              <span v-show="desc1Visible" @click="deleteDesc(1)">删除描述</span>
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc1Visible">
-            <textarea name="" id="desc">描述（可选）</textarea>
+            <textarea name="" id="desc" v-model="desc1"></textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
@@ -48,7 +48,7 @@
               <el-select v-model="select2" placeholder="请选择">
                 <el-option
                   v-for="(item, index) in evaluateOptions"
-                  :key="item.index"
+                  :key="index"
                   :label="item.label"
                   :value="item.value">
                   <img :src="item.icon" alt="">
@@ -60,11 +60,11 @@
               <img src="../assets/images/edit@2x.png" v-show="!desc2Visible" alt="">
               <img src="../assets/images/delete@2x.png" v-show="desc2Visible" alt="">
               <span v-show="!desc2Visible">添加描述</span>
-              <span v-show="desc2Visible">删除描述</span>
+              <span v-show="desc2Visible" @click="deleteDesc(2)">删除描述</span>
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc2Visible">
-            <textarea name="" id="desc">描述（可选）</textarea>
+            <textarea name="" id="desc" v-model="desc2"></textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
@@ -84,7 +84,7 @@
               <el-select v-model="select3" placeholder="请选择">
                 <el-option
                   v-for="(item, index) in evaluateOptions"
-                  :key="item.index"
+                  :key="index"
                   :label="item.label"
                   :value="item.value">
                   <img :src="item.icon" alt="">
@@ -96,11 +96,11 @@
               <img src="../assets/images/edit@2x.png" v-show="!desc3Visible" alt="">
               <img src="../assets/images/delete@2x.png" v-show="desc3Visible" alt="">
               <span v-show="!desc3Visible">添加描述</span>
-              <span v-show="desc3Visible">删除描述</span>
+              <span v-show="desc3Visible" @click="deleteDesc(3)">删除描述</span>
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc3Visible">
-            <textarea name="" id="desc">描述（可选）</textarea>
+            <textarea name="" id="desc" v-model="desc3"></textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
@@ -113,7 +113,7 @@
               <el-select v-model="select4" placeholder="请选择">
                 <el-option
                   v-for="(item, index) in evaluateOptions"
-                  :key="item.index"
+                  :key="index"
                   :label="item.label"
                   :value="item.value">
                   <img :src="item.icon" alt="">
@@ -125,11 +125,11 @@
               <img src="../assets/images/edit@2x.png" v-show="!desc4Visible" alt="">
               <img src="../assets/images/delete@2x.png" v-show="desc4Visible" alt="">
               <span v-show="!desc4Visible">添加描述</span>
-              <span v-show="desc4Visible">删除描述</span>
+              <span v-show="desc4Visible" @click="deleteDesc(4)">删除描述</span>
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc4Visible">
-            <textarea name="" id="desc">描述（可选）</textarea>
+            <textarea name="" id="desc" v-model="desc4"></textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
@@ -149,7 +149,7 @@
               <el-select v-model="select5" placeholder="请选择">
                 <el-option
                   v-for="(item, index) in evaluateOptions"
-                  :key="item.index"
+                  :key="index"
                   :label="item.label"
                   :value="item.value">
                   <img :src="item.icon" alt="">
@@ -161,11 +161,11 @@
               <img src="../assets/images/edit@2x.png" v-show="!desc5Visible" alt="">
               <img src="../assets/images/delete@2x.png" v-show="desc5Visible" alt="">
               <span v-show="!desc5Visible">添加描述</span>
-              <span v-show="desc5Visible">删除描述</span>
+              <span v-show="desc5Visible" @click="deleteDesc(5)">删除描述</span>
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc5Visible">
-            <textarea name="" id="desc">描述（可选）</textarea>
+            <textarea name="" id="desc" v-model="desc5"></textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
@@ -173,7 +173,7 @@
     </div>
     <div class="btn-wrapper">
       <div class="btn btn-prev" @click="handlePrev">上一步</div>
-      <div class="btn btn-next" @click="handleNext">下一步</div>
+      <div class="btn btn-next" :class="{'active': btnStatus}" @click="handleNext">下一步</div>
     </div>
   </div>
 </template>
@@ -205,11 +205,17 @@ export default {
           label: '松动'
         }
       ],
+      desc1: '',
+      desc2: '',
+      desc3: '',
+      desc4: '',
+      desc5: '',
       desc1Visible: false,
       desc2Visible: false,
       desc3Visible: false,
       desc4Visible: false,
-      desc5Visible: false
+      desc5Visible: false,
+      btnStatus: false
     }
   },
   components: {
@@ -263,6 +269,25 @@ export default {
           break
       }
     },
+    deleteDesc (val) {
+      switch (val) {
+        case 1 :
+          this.desc1 = ''
+          break
+        case 2 :
+          this.desc2 = ''
+          break
+        case 3 :
+          this.desc3 = ''
+          break
+        case 4 :
+          this.desc4 = ''
+          break
+        case 5 :
+          this.desc5 = ''
+          break
+      }
+    },
     handleCamera () {
       /*eslint-disable*/
       navigator.camera.getPicture(this.onSuccess, this.onFail, {
@@ -278,6 +303,43 @@ export default {
     },
     onFail () {
     }
+  },
+  watch: {
+    desc1: {
+      handler (val, oldVal) {
+        if (val && this.desc2 && this.desc3 && this.desc4 && this.desc5) {
+          this.btnStatus = true
+        }
+      }
+    },
+    desc2: {
+      handler (val, oldVal) {
+        if (val && this.desc1 && this.desc3 && this.desc4 && this.desc5) {
+          this.btnStatus = true
+        }
+      }
+    },
+    desc3: {
+      handler (val, oldVal) {
+        if (val && this.desc1 && this.desc2 && this.desc4 && this.desc5) {
+          this.btnStatus = true
+        }
+      }
+    },
+    desc4: {
+      handler (val, oldVal) {
+        if (val && this.desc1 && this.desc2 && this.desc3 && this.desc5) {
+          this.btnStatus = true
+        }
+      }
+    },
+    desc5: {
+      handler (val, oldVal) {
+        if (val && this.desc1 && this.desc2 && this.desc3 && this.desc4) {
+          this.btnStatus = true
+        }
+      }
+    }
   }
 }
 </script>
@@ -290,14 +352,12 @@ export default {
 
     .title {
       position: relative;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
       text-align: center;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -311,7 +371,6 @@ export default {
     .outer-wrapper {
       .head {
         margin: 0.28rem 0 0.16rem 0.16rem;
-        font-family: SourceHanSansCN-Bold;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
@@ -327,7 +386,6 @@ export default {
 
           p {
             padding: 0rem 0 0.13rem 0;
-            font-family: SourceHanSansCN-Normal;
             font-size: 12px;
             color: #707070;
             letter-spacing: -0.5px;
@@ -351,7 +409,7 @@ export default {
               }
 
               .el-select {
-                width: 2.59rem;
+                width: 2.5rem;
                 height: 0.3rem;
                 border: 1px solid #C7C7CD;
                 outline: 0;
@@ -375,7 +433,6 @@ export default {
               }
 
               span {
-                font-family: SourceHanSansCN-Normal;
                 font-size: 12px;
                 color: #698CA7;
                 letter-spacing: -0.5px;
@@ -415,7 +472,6 @@ export default {
               }
 
               .text {
-                font-family: SourceHanSansCN-Normal;
                 font-size: 12px;
                 color: #688BA6;
                 letter-spacing: -0.5px;
@@ -447,9 +503,8 @@ export default {
               height: 0.45rem;
               display: inline-block;
               resize: none;
-              font-family: SourceHanSansCN-Normal;
               font-size: 12px;
-              color: #BDBDBD;
+              color: #707070;
               letter-spacing: -0.5px;
               border: 0;
               outline: 0;
@@ -489,7 +544,6 @@ export default {
         border: 1px solid #1792E5;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #1792E5;
         letter-spacing: -0.89px;
@@ -502,10 +556,14 @@ export default {
         border: 1px solid #ABABAB;
         line-height: 0.5rem;
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.89px;
+      }
+
+      .active {
+        background: #1792E5;
+        border: 1px solid #1792E5;
       }
     }
   }
@@ -518,7 +576,6 @@ export default {
       }
 
       span {
-        font-family: SourceHanSansCN-Medium;
         font-size: 12px;
         color: #707070;
         letter-spacing: -0.5px;

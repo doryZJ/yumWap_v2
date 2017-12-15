@@ -29,7 +29,6 @@
     .title {
       margin-left: .16rem;
       padding-top: .34rem;
-      font-family: SourceHanSansCN-Normal;
       font-size: 34px;
       color: #000000;
       height: .5rem;
