@@ -7,11 +7,11 @@
       <div class="login">
         <div class="username">
           <img src="../assets/images/icon_id_9x20 copy 2.png" alt="">
-          <input type="text" placeholder="用户名" value="" v-model="username">
+          <input type="text"  @focus="focusUsername" @blur="blurUsername" v-model="username">
         </div>
         <div class="password">
           <img src="../assets/images/icon_password_11x19 copy 2.png" alt="">
-          <input type="password" placeholder="密码" value="" v-model="password">
+          <input type="password" ref="password" placeholder="密码" @focus="focusPassword" @blur="blurPassword" v-model="password">
         </div>
         <div class="btn" @click="handleLogin">
           登录
@@ -31,13 +31,29 @@
   export default {
     data () {
       return {
-        username: '',
+        username: '用户名',
         password: ''
       }
     },
     mounted () {
     },
     methods: {
+      focusUsername () {
+        this.username = ''
+      },
+      blurUsername () {
+        if (!this.username) {
+          this.username = '用户名'
+        }
+      },
+      focusPassword () {
+        this.$refs.password.placeholder = ''
+      },
+      blurPassword () {
+        if (!this.password) {
+          this.$refs.password.placeholder = '密码'
+        }
+      },
       handleLogin () {
         if (this.checkLogin()) {
           this.$router.push('/areaIndex')
@@ -106,6 +122,7 @@
           border-bottom: 1px solid #D0D0D0;
           height: 0.46rem;
           font-size: 12px;
+          text-align: left;
 
           img {
             vertical-align: middle;

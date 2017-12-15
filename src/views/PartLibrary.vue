@@ -83,7 +83,8 @@
   .partLibrary {
     background: #F4F8FB;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
 
     .title {
       position: relative;

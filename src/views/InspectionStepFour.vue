@@ -193,6 +193,7 @@
         float: right;
         margin: 0 0.2rem 0 0;
         background: #1792E5;
+        border: 1px solid #1792E5;
         line-height: 0.5rem;
         text-align: center;
         font-family: SourceHanSansCN-Regular;

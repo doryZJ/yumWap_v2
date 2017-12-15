@@ -82,7 +82,7 @@
       float: left;
 
       img {
-        height: 24px;
+        height: 23px;
         display: block;
         margin: 0 auto;
       }

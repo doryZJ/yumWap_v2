@@ -12,38 +12,58 @@
       <div class="outer-content">
         <div class="evaluate">
           <p>1. 确认风机是否正常工作，有无异常声音和振动</p>
-          <div class="select-box clearfix">
-            <div class="select select1" @click="handleSelect('select1', 0)">
-              <span class="icon">
-                <i v-show="select1 === 0"></i>
-              </span>
-              <span class="text">通过</span>
+          <div class="evaluate-content clearfix">
+            <div class="evaluate-select-box">
+              <img src="../assets/images/status_green@2x.png" v-show="select1 === '正常'" class="icon-status" alt="">
+              <img src="../assets/images/status_orange@2x.png" v-show="select1 === '松动'" class="icon-status" alt="">
+              <el-select v-model="select1" placeholder="请选择">
+                <el-option
+                  v-for="(item, index) in evaluateOptions"
+                  :key="item.index"
+                  :label="item.label"
+                  :value="item.value">
+                  <img :src="item.icon" alt="">
+                  <span>{{item.label}}</span>
+                </el-option>
+              </el-select>
             </div>
-            <div class="select select2" @click="handleSelect('select1', 1)">
-              <span class="icon">
-                <i v-show="select1 === 1"></i>
-              </span>
-              <span class="text">不通过</span>
+            <div class="addDesc" @click="editDesc(1)">
+              <img src="../assets/images/edit@2x.png" v-show="!desc1Visible" alt="">
+              <img src="../assets/images/delete@2x.png" v-show="desc1Visible" alt="">
+              <span v-show="!desc1Visible">添加描述</span>
+              <span v-show="desc1Visible">删除描述</span>
             </div>
+          </div>
+          <div class="desc-wrapper" v-show="desc1Visible">
+            <textarea name="" id="desc">描述（可选）</textarea>
+            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
         <div class="evaluate">
           <p>2. 确认外部金属网的固定螺丝有无松动脱落</p>
-          <div class="select-box clearfix">
-            <div class="select select1" @click="handleSelect('select2', 0)">
-              <span class="icon">
-                <i v-show="select2 === 0" ></i>
-              </span>
-              <span class="text">通过</span>
+          <div class="evaluate-content clearfix">
+            <div class="evaluate-select-box">
+              <img src="../assets/images/status_green@2x.png" v-show="select2 === '正常'" class="icon-status" alt="">
+              <img src="../assets/images/status_orange@2x.png" v-show="select2 === '松动'" class="icon-status" alt="">
+              <el-select v-model="select2" placeholder="请选择">
+                <el-option
+                  v-for="(item, index) in evaluateOptions"
+                  :key="item.index"
+                  :label="item.label"
+                  :value="item.value">
+                  <img :src="item.icon" alt="">
+                  <span>{{item.label}}</span>
+                </el-option>
+              </el-select>
             </div>
-            <div class="select select2" @click="handleSelect('select2', 1)">
-              <span class="icon">
-                <i v-show="select2 === 1"></i>
-              </span>
-              <span class="text">不通过</span>
+            <div class="addDesc" @click="editDesc(2)">
+              <img src="../assets/images/edit@2x.png" v-show="!desc2Visible" alt="">
+              <img src="../assets/images/delete@2x.png" v-show="desc2Visible" alt="">
+              <span v-show="!desc2Visible">添加描述</span>
+              <span v-show="desc2Visible">删除描述</span>
             </div>
           </div>
-          <div class="desc-wrapper">
+          <div class="desc-wrapper" v-show="desc2Visible">
             <textarea name="" id="desc">描述（可选）</textarea>
             <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
@@ -52,41 +72,65 @@
     </div>
     <div class="outer-wrapper">
       <div class="head">
-        冷凝风机
+        冷却风机
       </div>
       <div class="outer-content">
         <div class="evaluate">
-          <p>1. 确认风机是否正常工作，有无异常声音和振动</p>
-          <div class="select-box clearfix">
-            <div class="select select1" @click="handleSelect('select3', 0)">
-              <span class="icon">
-                <i v-show="select3 === 0"></i>
-              </span>
-              <span class="text">通过</span>
+          <p>1. 机头、陈列柜内风机（是否正常工作，有无异常声音和振动）</p>
+          <div class="evaluate-content clearfix">
+            <div class="evaluate-select-box">
+              <img src="../assets/images/status_green@2x.png" v-show="select3 === '正常'" class="icon-status" alt="">
+              <img src="../assets/images/status_orange@2x.png" v-show="select3 === '松动'" class="icon-status" alt="">
+              <el-select v-model="select3" placeholder="请选择">
+                <el-option
+                  v-for="(item, index) in evaluateOptions"
+                  :key="item.index"
+                  :label="item.label"
+                  :value="item.value">
+                  <img :src="item.icon" alt="">
+                  <span>{{item.label}}</span>
+                </el-option>
+              </el-select>
             </div>
-            <div class="select select2" @click="handleSelect('select3', 1)">
-              <span class="icon">
-                <i v-show="select3 === 1"></i>
-              </span>
-              <span class="text">不通过</span>
+            <div class="addDesc" @click="editDesc(3)">
+              <img src="../assets/images/edit@2x.png" v-show="!desc3Visible" alt="">
+              <img src="../assets/images/delete@2x.png" v-show="desc3Visible" alt="">
+              <span v-show="!desc3Visible">添加描述</span>
+              <span v-show="desc3Visible">删除描述</span>
             </div>
+          </div>
+          <div class="desc-wrapper" v-show="desc3Visible">
+            <textarea name="" id="desc">描述（可选）</textarea>
+            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
         <div class="evaluate">
           <p>2. 确认外部金属网的固定螺丝有无松动脱落</p>
-          <div class="select-box clearfix">
-            <div class="select select1" @click="handleSelect('select4', 0)">
-              <span class="icon">
-                <i v-show="select4 === 0"></i>
-              </span>
-              <span class="text">通过</span>
+          <div class="evaluate-content clearfix">
+            <div class="evaluate-select-box">
+              <img src="../assets/images/status_green@2x.png" v-show="select4 === '正常'" class="icon-status" alt="">
+              <img src="../assets/images/status_orange@2x.png" v-show="select4 === '松动'" class="icon-status" alt="">
+              <el-select v-model="select4" placeholder="请选择">
+                <el-option
+                  v-for="(item, index) in evaluateOptions"
+                  :key="item.index"
+                  :label="item.label"
+                  :value="item.value">
+                  <img :src="item.icon" alt="">
+                  <span>{{item.label}}</span>
+                </el-option>
+              </el-select>
             </div>
-            <div class="select select2" @click="handleSelect('select4', 0)">
-              <span class="icon">
-                <i v-show="select4 === 1"></i>
-              </span>
-              <span class="text">不通过</span>
+            <div class="addDesc" @click="editDesc(4)">
+              <img src="../assets/images/edit@2x.png" v-show="!desc4Visible" alt="">
+              <img src="../assets/images/delete@2x.png" v-show="desc4Visible" alt="">
+              <span v-show="!desc4Visible">添加描述</span>
+              <span v-show="desc4Visible">删除描述</span>
             </div>
+          </div>
+          <div class="desc-wrapper" v-show="desc4Visible">
+            <textarea name="" id="desc">描述（可选）</textarea>
+            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
       </div>
@@ -97,20 +141,32 @@
       </div>
       <div class="outer-content">
         <div class="evaluate">
-          <p>1. 目测有无异常变色损伤</p>
-          <div class="select-box clearfix">
-            <div class="select select1"  @click="handleSelect('select5', 0)">
-              <span class="icon">
-                <i v-show="select5 === 0"></i>
-              </span>
-              <span class="text">通过</span>
+          <p>1. 电磁开关主体（目测有无异常变色损伤）</p>
+          <div class="evaluate-content clearfix">
+            <div class="evaluate-select-box">
+              <img src="../assets/images/status_green@2x.png" v-show="select5 === '正常'" class="icon-status" alt="">
+              <img src="../assets/images/status_orange@2x.png" v-show="select5 === '松动'" class="icon-status" alt="">
+              <el-select v-model="select5" placeholder="请选择">
+                <el-option
+                  v-for="(item, index) in evaluateOptions"
+                  :key="item.index"
+                  :label="item.label"
+                  :value="item.value">
+                  <img :src="item.icon" alt="">
+                  <span>{{item.label}}</span>
+                </el-option>
+              </el-select>
             </div>
-            <div class="select select2"  @click="handleSelect('select5', 0)">
-              <span class="icon">
-                <i v-show="select5 === 1"></i>
-              </span>
-              <span class="text">不通过</span>
+            <div class="addDesc" @click="editDesc(5)">
+              <img src="../assets/images/edit@2x.png" v-show="!desc5Visible" alt="">
+              <img src="../assets/images/delete@2x.png" v-show="desc5Visible" alt="">
+              <span v-show="!desc5Visible">添加描述</span>
+              <span v-show="desc5Visible">删除描述</span>
             </div>
+          </div>
+          <div class="desc-wrapper" v-show="desc5Visible">
+            <textarea name="" id="desc">描述（可选）</textarea>
+            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
           </div>
         </div>
       </div>
@@ -123,19 +179,37 @@
 </template>
 <script>
 import InspectionStep from '@/components/InspectionStep'
+import statusGreen from '@/assets/images/status_green@2x.png'
+import statusOrange from '@/assets/images/status_orange@2x.png'
 export default {
   data () {
     return {
       step: 3,
-      select1: 0, // 0:通过，1:不通过
-      select2: 0, // 0:通过，1:不通过
-      select3: 0, // 0:通过，1:不通过
-      select4: 0, // 0:通过，1:不通过
-      select5: 0, // 0:通过，1:不通过
+      select1: '正常',
+      select2: '正常',
+      select3: '正常',
+      select4: '正常',
+      select5: '正常',
       // PHOTOLIBRARY 或 0 打开照片库
       // CAMERA 或 1 打开本机相机
       // SAVEDPHOTOALBUM 或 2 打开已保存的相册e
-      mySourceType: 1
+      mySourceType: 1,
+      evaluateOptions: [
+        {
+          icon: statusGreen,
+          value: '正常',
+          label: '正常'
+        }, {
+          icon: statusOrange,
+          value: '松动',
+          label: '松动'
+        }
+      ],
+      desc1Visible: false,
+      desc2Visible: false,
+      desc3Visible: false,
+      desc4Visible: false,
+      desc5Visible: false
     }
   },
   components: {
@@ -167,6 +241,25 @@ export default {
           break
         case 'select5' :
           this.select5 = val
+          break
+      }
+    },
+    editDesc (val) {
+      switch (val) {
+        case 1 :
+          this.desc1Visible = !this.desc1Visible
+          break
+        case 2 :
+          this.desc2Visible = !this.desc2Visible
+          break
+        case 3 :
+          this.desc3Visible = !this.desc3Visible
+          break
+        case 4 :
+          this.desc4Visible = !this.desc4Visible
+          break
+        case 5 :
+          this.desc5Visible = !this.desc5Visible
           break
       }
     },
@@ -240,6 +333,58 @@ export default {
             letter-spacing: -0.5px;
           }
 
+          .evaluate-content {
+            font-size: 12px;
+            position: relative;
+            height: 0.32rem;
+
+            .evaluate-select-box {
+              float: left;
+
+              .icon-status {
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                z-index: 99;
+              }
+
+              .el-select {
+                width: 2.59rem;
+                height: 0.3rem;
+                border: 1px solid #C7C7CD;
+                outline: 0;
+
+                .el-input__inner {
+                  border: 0;
+                  padding-left: 25px;
+                  height: 0.3rem;
+                }
+              }
+            }
+
+            .addDesc {
+              float: right;
+              margin-right: 16px;
+
+              img {
+                width: 16px;
+                height: 16px;
+                vertical-align: middle;
+              }
+
+              span {
+                font-family: SourceHanSansCN-Normal;
+                font-size: 12px;
+                color: #698CA7;
+                letter-spacing: -0.5px;
+                vertical-align: middle;
+                line-height: 32px;
+              }
+            }
+          }
+
           .select-box {
             height: 20px;
             .select {
@@ -289,14 +434,13 @@ export default {
           }
 
           .desc-wrapper {
-            width: 3.1rem;
             height: 0.6rem;
             border: 1px solid #C7C7CD;
             padding: 0.05rem 0.1rem;
             position: relative;
             box-sizing: border-box;
             font-size: 12px;
-            margin: 0.16rem 0 0 0.1rem;
+            margin: 0.16rem 20px 0 0;
 
             textarea {
               width: 2.38rem;
@@ -354,7 +498,8 @@ export default {
       .btn-next {
         float: right;
         margin: 0 0.2rem 0 0;
-        background: #1792E5;
+        background: #ABABAB;
+        border: 1px solid #ABABAB;
         line-height: 0.5rem;
         text-align: center;
         font-family: SourceHanSansCN-Regular;
@@ -364,6 +509,22 @@ export default {
       }
     }
   }
+
+  .el-select-dropdown__item {
+      img {
+        width: 10px;
+        height: 10px;
+        vertical-align: middle;
+      }
+
+      span {
+        font-family: SourceHanSansCN-Medium;
+        font-size: 12px;
+        color: #707070;
+        letter-spacing: -0.5px;
+        vertical-align: middle;
+      }
+    }
 </style>
 
 

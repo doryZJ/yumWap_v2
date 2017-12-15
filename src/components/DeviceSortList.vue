@@ -1,7 +1,9 @@
 <template>
   <div class="deviceSortList">
-    <scroll class="list-wrapper">
-      <ul>
+    <!-- <scroll class="list-wrapper"> -->
+      <ul v-infinite-scroll="loadMore"
+          infinite-scroll-disabled="loading"
+          infinite-scroll-distance="10">
         <li v-for="(item, index) in list" :key="index">
           <div class="item">
             <div class="item-left">
@@ -34,11 +36,11 @@
           </div>
         </li>
       </ul>
-    </scroll>
+    <!-- </scroll> -->
   </div>
 </template>
 <script>
-  import Scroll from './Scroll'
+  // import Scroll from './Scroll'
   export default {
     data () {
       return {
@@ -153,11 +155,24 @@
             variety: 1, // 0:上升，1: 下降
             setup: '设定：-12.0℃'
           }
-        ]
+        ],
+        loading: false
       }
     },
     components: {
-      Scroll
+      // Scroll
+    },
+    methods: {
+      loadMore () {
+        this.loading = true
+        setTimeout(() => {
+          let last = this.list[this.list.length - 1]
+          for (let i = 1; i <= 10; i++) {
+            this.list.push(last)
+          }
+          this.loading = false
+        }, 2500)
+      }
     }
   }
 </script>
@@ -166,6 +181,7 @@
     margin-top: 0.35rem;
     font-size: 0;
     height: calc(100% - 1.63rem);
+    overflow: scroll;
 
     .list-wrapper {
       width: 100%;
