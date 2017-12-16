@@ -59,7 +59,7 @@
         info: {
           loginname: '王某某',
           username: '王某某',
-          password:  '******',
+          password: '******',
           tel: '18627812736',
           position: '维修工程师'
         },
@@ -81,8 +81,10 @@
   .mycount {
     background: #F4F8FB;
     width: 100%;
-    height: 100%;
-
+    min-height: 100%;
+    height: auto;
+    padding-bottom: 0.59rem;
+    
     .title {
       position: relative;
       display: flex;

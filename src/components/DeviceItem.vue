@@ -71,9 +71,11 @@
 
           p {
             font-size: 14px;
+            line-height: 18px;
             color: #707070;
             letter-spacing: -0.58px;
             margin: 0;
+            margin-bottom: 3px;
           }
 
           span {
@@ -92,21 +94,22 @@
 
         .modulus {
           .modulus-name {
-            display: flex;
-            align-items: center;
-
+            height: 20px;
+            
             span {
               font-size: 14px;
               color: #707070;
               letter-spacing: -0.58px;
               display: inline-block;
               margin-right: 4.3px;
+              vertical-align: middle;
             }
 
             img {
               width: 6px;
               height: 6px;
               display: inline-block;
+              vertical-align: middle;
             }
           }
 

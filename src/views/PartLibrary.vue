@@ -20,6 +20,10 @@
       <mt-actionsheet :actions="sortActions" v-model="sortSheetVisible"></mt-actionsheet>
     </div>
     <parts-list></parts-list>
+    <div class="btn-wrapper">
+      <div class="btn btn-prev" @click="handlePrev">返 回</div>
+      <div class="btn btn-next" :class="{'active': btnStatus}" @click="handleConfirm">确 定</div>
+    </div>
   </div>
 </template>
 <script>
@@ -64,6 +68,10 @@
       goBack () {
         this.$router.go(-1)
       },
+      handlePrev () {
+        this.$router.go(-1)
+      },
+      handleConfirm () {},
       selectFilter (val) {
         this.filterName = val.name
       },
@@ -83,8 +91,7 @@
   .partLibrary {
     background: #F4F8FB;
     width: 100%;
-    min-height: 100%;
-    height: auto;
+    height: 100%;
 
     .title {
       position: relative;
@@ -141,6 +148,54 @@
 
       .sort2 {
         float: right;
+      }
+    }
+
+    .btn-wrapper {
+      height: 0.5rem;
+      padding: 0.1rem 0;
+      position: absolute;
+      bottom: 0;
+      background: #fff;
+      width: 100%;
+
+      &::after {
+        content: '';
+        clear: both;
+      }
+
+      .btn {
+        width: 1.37rem;
+        height: 0.5rem;
+      }
+
+      .btn-prev {
+        float: left;
+        margin: 0 0rem 0 0.2rem;
+        background: #FFFFFF;
+        border: 1px solid #1792E5;
+        line-height: 0.5rem;
+        text-align: center;
+        font-size: 16px;
+        color: #1792E5;
+        letter-spacing: -0.89px;
+      }
+
+      .btn-next {
+        float: right;
+        margin: 0 0.2rem 0 0;
+        background: #1792E5;
+        border: 1px solid #1792E5;
+        line-height: 0.5rem;
+        text-align: center;
+        font-size: 16px;
+        color: #FFFFFF;
+        letter-spacing: -0.89px;
+      }
+
+      .active {
+        background: #1792E5;
+        border: 1px solid #1792E5;
       }
     }
   }

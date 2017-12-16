@@ -5,7 +5,7 @@
         <li v-for="(item, index) in list" :key="index">
           <span class="name">{{item.name}}</span>
           <div class="count">
-            <img src="../assets/images/minus@2x.png" v-show="item.count > 0" @click="handleReduce(index)" alt="">
+            <img src="../assets/images/minus@2x.png" v-show="item.count > 0" :class="{'minus': item.count === 1}" @click="handleReduce(index)" alt="">
             <span class="num" v-show="item.count > 0">x{{item.count}}</span>
             <img src="../assets/images/Add@2x.png" alt="" @click="handleAdd(index)">
           </div>
@@ -96,7 +96,7 @@
   .partsList {
     margin-top: 0.35rem;
     font-size: 0;
-    height: calc(100% - 1.2rem);
+    height: calc(100% - 1.82rem);
     overflow: hidden;
 
     .list-wrapper {
@@ -110,6 +110,8 @@
     ul {
       background: #fff;
       padding-left: 0.16rem;
+      height: 100%;
+      overflow: auto;
       
       li {
         padding: 0.2rem 0;
@@ -149,6 +151,10 @@
             line-height: 0.2rem;
             margin: 0 0.13rem;
             vertical-align: middle;
+          }
+
+          .minus {
+            opacity: 0.5;
           }
         }
       }

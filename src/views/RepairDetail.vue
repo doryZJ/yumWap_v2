@@ -1,8 +1,30 @@
 <template>
-  <div class="maintenanceApplication">
+  <div class="RepairDetail">
     <div class="title">
       <div class="back" @click="goBack"><返回</div>
-      <span>创建维修申请</span>
+      <span>维修工单</span>
+    </div>
+    <div class="orderInfo">
+      <div class="head clearfix">
+        <div class="head-left clearfix">
+          <div class="orderState">急</div>
+          <div class="order-content">
+            <p class="order-title">{{orderTitle}}</p>
+            <p class="store">{{orderStore}}</p>
+          </div>
+        </div>
+        <div class="head-right">{{distance}}m</div>
+      </div>
+      <div class="store-info clearfix">
+        <div class="store-tel">
+          <img src="../assets/images/tel@2x.png" alt="">
+          <span>{{tel}}</span>
+        </div>
+        <div class="store-place">
+          <img src="../assets/images/place@2x.png" alt="">
+          <span>查看门店位置</span>
+        </div>
+      </div>
     </div>
     <div class="basicInfo">
       <div class="head">基本信息</div>
@@ -20,14 +42,26 @@
           <span class="value">{{source}}</span>
         </div>
         <div class="info">
-          <span class="label">紧急程度</span>
-          <span class="value" @click="handleUrgent">{{urgentSelected}}
+          <span class="label">创建时间</span>
+          <span class="value">{{createTime}}</span>
+        </div>
+        <div class="info">
+          <span class="label">工单号</span>
+          <span class="value">{{no}}</span>
+        </div>
+        <div class="info">
+          <span class="label">状态</span>
+          <span class="value">{{state}}</span>
+        </div>
+        <div class="info">
+          <span class="label">图片</span>
+          <p class="value">
+            <span>{{urgentSelected}}</span>
             <img src="../assets/images/Gray Copy 11.png" alt="">
-          </span>
+          </p>
         </div>
       </div>
     </div>
-    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
     <div class="fault-wrapper">
       <div class="head">故障明细</div>
       <div class="fault">
@@ -40,8 +74,6 @@
       <div class="head">
         <div class="clearfix">
           <span class="name">维修明细</span>
-          <span class="edit" v-show="!isEdit" @click="handleEdit">编辑</span>
-          <span class="edit" v-show="isEdit" @click="handleComplete">完成</span>
         </div>
       </div>
       <div class="repair-list">
@@ -49,15 +81,9 @@
           <li class="clearfix" v-for="(item, index) in repairList" :key="index">
             <span class="name">{{item.name}}</span>
             <div class="count">
-              <span class="price" :class="{'pricePadding': isEdit}">{{item.price}}元/个</span>
-              <img src="../assets/images/minus@2x.png" @click="handleReduce(index)" class="btn-minus" :class="{'minus': item.count === 1}" v-show="item.count && isEdit" alt="">
+              <span class="price">{{item.price}}元/个</span>
               <span class="number" v-show="item.count">  x {{item.count}}</span>
-              <img src="../assets/images/Add@2x.png" @click="handleAdd(index)" class="btn-add" v-show="isEdit" alt="">
             </div>
-          </li>
-          <li @click="addParts">
-            <img src="../assets/images/add_small@2x.png" alt="">
-            <span class="addParts">新增零件</span>
           </li>
         </ul>
       </div>
@@ -65,33 +91,31 @@
     <div class="remark-wrapper">
       <div class="head">
         <div class="clearfix">
-          <span class="name">维修明细</span>
-          <img src="../assets/images/camera@2x.png" @click="handleCamera" alt="">
+          <span class="name">备注</span>
         </div>
       </div>
       <textarea class="remark" v-model="remark"></textarea>
     </div>
     <div class="btn-wrapper">
-      <div class="btn" @click="handleCreate">创 建</div>
+      <div class="btn" @click="handleCreate">填写维修记录</div>
     </div>
   </div>
 </template>
 <script>
   export default {
     data () {
-      const route = this.$route
-      const routePath = route.path
-      let isEdit = false
-      if (routePath.indexOf('edit') >= 0) {
-        isEdit = true
-      }
-      console.log('isEdit', isEdit)
       return {
-        isEdit,
+        orderTitle: 'LED灯安装',
+        orderStore: '永辉超市（张江店）',
+        distance: 500,
+        tel: '021-92873652',
         store: '52192489475',
         repairType: '冷链系统',
         source: '日检',
-        urgentSelected: '一般',
+        createTime: '2017/10/17    16:30:05',
+        no: 'AKDOF7934600',
+        state: '待维修',
+        urgentSelected: '查看',
         sheetVisible: false,
         actions: [],
         repairList: [
@@ -113,29 +137,8 @@
       goBack () {
         this.$router.go(-1)
       },
-      handleUrgent () {
-        this.sheetVisible = true
-      },
-      selectSort (val) {
-        this.urgentSelected = val.name
-      },
-      addParts () {
-        this.$router.push('/partLibrary')
-      },
-      handleEdit () {
-        this.$router.push('/MaintenanceApplication/edit')
-      },
-      handleComplete () {
-        this.$router.push('/MaintenanceApplication')
-      },
-      handleAdd (index) {
-        this.repairList[index].count++
-      },
-      handleReduce (index) {
-        this.repairList[index].count--
-      },
       handleCreate () {
-        this.$router.push('/mainApplicationSuccess')
+        this.$router.push('/repairRecord')
       },
       handleCamera () {
         /*eslint-disable*/
@@ -152,37 +155,11 @@
       },
       onFail () {
       }
-    },
-    mounted () {
-      this.actions = [
-        {
-          name: '一般',
-          method: this.selectSort
-        },
-        {
-          name: '紧急',
-          method: this.selectSort
-        }
-      ]
-    },
-    watch: {
-      $route: {
-        handler: function (val, oldVal) {
-          if (val) {
-            const path = val.path
-            if (path.indexOf('edit') >= 0) {
-              this.isEdit = true
-            } else {
-              this.isEdit = false
-            }
-          }
-        }
-      }
     }
   }
 </script>
 <style lang="scss">
-  .maintenanceApplication {
+  .RepairDetail {
     background: #F4F8FB;
     width: 100%;
     min-height: 100%;
@@ -203,6 +180,105 @@
         position: absolute;
         left: 0.1rem;
         line-height: 28px;
+      }
+    }
+
+    .orderInfo {
+      background: #FFFFFF;
+      box-shadow: 0 1px 2px 0 rgba(192,192,192,0.20);
+
+      .head {
+        padding: 20px 26px;
+        height: 36px;
+
+        .head-left {
+          float: left;
+
+          .orderState {
+            width: 36px;
+            height: 36px;
+            background: #E2742D;
+            float: left;
+            text-align: center;
+            line-height: 36px;
+            font-size: 18px;
+            color: #FFFFFF;
+            border-radius: 50%;
+            margin-right: 12px;
+          }
+
+          .order-content {
+            float: left;
+
+            .order-title {
+              font-size: 18px;
+              line-height: 18px;
+              color: #505050;
+              letter-spacing: 0.09px;
+              padding: 0;
+              margin-bottom: 3px;
+            }
+
+            .store {
+              font-size: 14px;
+              color: #9B9B9B;
+              letter-spacing: -0.58px;
+            }
+          }
+        }
+
+        .head-right {
+          float: right;
+          font-size: 14px;
+          color: #9B9B9B;
+          letter-spacing: -0.58px;
+          margin-top: 16px;
+        }
+      }
+
+      .store-info {
+        border-top: 1px solid #F7F7F7;
+        height: 45px;
+
+        .store-tel {
+          width: 50%;
+          border-right: 1px solid #F7F7F7;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          color: #1792E5;
+          box-sizing: border-box;
+          float: left;
+
+          img {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+          }
+
+          span {
+            vertical-align: middle;
+          }
+        }
+
+        .store-place {
+          width: 50%;
+          text-align: center;
+          line-height: 45px;
+          font-size: 14px;
+          color: #1792E5;
+          float: left;
+
+          img {
+            width: 12px;
+            height: 20px;
+            vertical-align: middle;
+          }
+
+          span {
+            vertical-align: middle;
+          }
+        }
       }
     }
 
@@ -241,9 +317,16 @@
             letter-spacing: -0.58px;
             line-height: 28px;
             float: right;
+            margin: 0;
+
+            span {
+              float: left;
+            }
 
             img {
-              margin-left: 5px;
+              float: left;
+              margin-left: 10px;
+              margin-top: 8px;
             }
           }
         }
@@ -252,11 +335,11 @@
 
     .fault-wrapper {
       .head {
-        font-weight: bold;
         margin: 0.28rem 0 0.16rem 0.16rem;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
+        font-weight: bold;
       }
 
       .fault {
@@ -275,12 +358,12 @@
 
     .repair-wrapper {
       .head {
-        font-weight: bold;
         margin: 0.28rem 0.16rem 0.16rem 0.16rem;
         font-size: 14px;
         color: #707070;
         letter-spacing: -0.58px;
         height: 14px;
+        font-weight: bold;
 
         .name {
           font-size: 14px;
@@ -322,7 +405,6 @@
                 width: 20px;
                 height: 20px;
                 display: inline-block;
-                vertical-align: middle;
                 margin-right: 0;
               }
 
@@ -330,7 +412,6 @@
                 font-size: 14px;
                 color: #688BA6;
                 letter-spacing: -0.58px;
-                vertical-align: middle;
               }
 
               .pricePadding {
@@ -355,14 +436,12 @@
               height: 14px;
               display: inline-block;
               margin-right: 6px;
-              vertical-align: middle;
             }
 
             .addParts {
               font-size: 12px;
               color: #1792E5;
               letter-spacing: -0.5px;
-              vertical-align: middle;
             }
           }
         }
@@ -371,7 +450,6 @@
 
     .remark-wrapper {
       .head {
-        font-weight: bold;
         margin: 0.28rem 0.16rem 0.16rem 0.16rem;
         height: 16px;
 
@@ -380,6 +458,7 @@
           font-size: 14px;
           color: #707070;
           letter-spacing: -0.58px;
+          font-weight: bold;
         }
 
         img {
@@ -427,3 +506,4 @@
     }
   }
 </style>
+

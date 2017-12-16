@@ -6,7 +6,7 @@
     <div class="tab-wrapper">
       <div class="tab" :class='{"active": tabActive === 0}' @click="handleTab(0)">待确认</div>
       <div class="tab" :class='{"active": tabActive === 1}' @click="handleTab(1)">待维修</div>
-      <div class="tab" :class='{"active": tabActive === 2}' @click="handleTab(2)">已完成</div>
+      <div class="tab tab-last" :class='{"active": tabActive === 2}' @click="handleTab(2)">已完成</div>
     </div>
     <repair-List></repair-List>
     <y-footer :nav="footerNav"></y-footer>
@@ -72,6 +72,10 @@
         height: 0.3rem;
         line-height: 0.3rem;
         float: left;
+      }
+
+      .tab-last {
+        float: right;
       }
 
       .active {

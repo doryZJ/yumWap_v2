@@ -112,6 +112,7 @@
 
     .basicInfo {
       .head {
+        font-weight: bold;
         margin: 0.28rem 0 0.16rem 0.16rem;
         font-size: 14px;
         color: #707070;
@@ -152,6 +153,7 @@
 
     .fault-wrapper {
       .head {
+        font-weight: bold;
         margin: 0.28rem 0 0.16rem 0.16rem;
         font-size: 14px;
         color: #707070;

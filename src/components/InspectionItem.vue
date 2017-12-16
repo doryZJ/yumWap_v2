@@ -90,10 +90,11 @@
         .product {
           p {
             font-size: 14px;
+            line-height: 18px;
             color: #707070;
             letter-spacing: -0.58px;
             margin: 0;
-            margin-bottom: 2px;
+            margin-bottom: 3px;
           }
 
           span {

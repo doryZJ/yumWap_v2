@@ -22,6 +22,9 @@ import InspectionSubmit from '@/views/InspectionSubmit'
 import MaintenanceApplication from '@/views/MaintenanceApplication'
 import PartLibrary from '@/views/PartLibrary'
 import MyCount from '@/views/MyCount'
+import MainApplicationSuccess from '@/views/MainApplicationSuccess'
+import RepairDetail from '@/views/RepairDetail'
+import RepairRecord from '@/views/RepairRecord'
 
 Vue.use(Router)
 
@@ -124,9 +127,19 @@ const router = new Router({
       component: InspectionSubmit
     },
     {
+      path: '/maintenanceApplication/edit',
+      name: 'MaintenanceApplication',
+      component: MaintenanceApplication
+    },
+    {
       path: '/maintenanceApplication',
       name: 'MaintenanceApplication',
       component: MaintenanceApplication
+    },
+    {
+      path: '/mainApplicationSuccess',
+      name: 'MainApplicationSuccess',
+      component: MainApplicationSuccess
     },
     {
       path: '/partLibrary',
@@ -137,8 +150,24 @@ const router = new Router({
       path: '/myCount',
       name: 'MyCount',
       component: MyCount
+    },
+    {
+      path: '/repairDetail',
+      name: 'RepairDetail',
+      component: RepairDetail
+    },
+    {
+      path: '/repairRecord',
+      name: 'RepairRecord',
+      component: RepairRecord
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    }
+    return {x: 0, y: 0}
+  }
 })
 
 export default router

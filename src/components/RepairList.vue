@@ -54,7 +54,7 @@
     },
     methods: {
       handleItem () {
-        this.$router.push('/inspectionStepOne')
+        this.$router.push('/repairDetail')
       }
     }
   }

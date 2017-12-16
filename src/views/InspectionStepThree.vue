@@ -27,16 +27,24 @@
                 </el-option>
               </el-select>
             </div>
-            <div class="addDesc" @click="editDesc(1)">
-              <img src="../assets/images/edit@2x.png" v-show="!desc1Visible" alt="">
-              <img src="../assets/images/delete@2x.png" v-show="desc1Visible" alt="">
-              <span v-show="!desc1Visible">添加描述</span>
-              <span v-show="desc1Visible" @click="deleteDesc(1)">删除描述</span>
+            <div class="addDesc" >
+              <img src="../assets/images/edit@2x.png" @click="editDesc(1)" class="icon_edit" alt="">
+              <img src="../assets/images/camera@2x.png" @click="handleCamera" class="icon_camera" alt="">
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc1Visible">
-            <textarea name="" id="desc" v-model="desc1"></textarea>
-            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
+            <div class="desc-text">
+              <textarea name="" id="desc" v-model="desc1"></textarea>
+              <div class="dsecClose" @click="deleteDesc(1)">
+                X
+              </div>
+            </div>
+            <div class="desc-pic clearfix">
+              <img src="../assets/images/desc.png" alt="">
+              <div class="addPic" @click="loadImageLocal">
+                +
+              </div>
+            </div>
           </div>
         </div>
         <div class="evaluate">
@@ -56,16 +64,24 @@
                 </el-option>
               </el-select>
             </div>
-            <div class="addDesc" @click="editDesc(2)">
-              <img src="../assets/images/edit@2x.png" v-show="!desc2Visible" alt="">
-              <img src="../assets/images/delete@2x.png" v-show="desc2Visible" alt="">
-              <span v-show="!desc2Visible">添加描述</span>
-              <span v-show="desc2Visible" @click="deleteDesc(2)">删除描述</span>
+            <div class="addDesc">
+              <img src="../assets/images/edit@2x.png" @click="editDesc(2)" class="icon_edit" alt="">
+              <img src="../assets/images/camera@2x.png" @click="handleCamera" class="icon_camera" alt="">
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc2Visible">
-            <textarea name="" id="desc" v-model="desc2"></textarea>
-            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
+            <div class="desc-text">
+              <textarea name="" id="desc" v-model="desc2"></textarea>
+              <div class="dsecClose" @click="deleteDesc(2)">
+                X
+              </div>
+            </div>
+            <div class="desc-pic clearfix">
+              <img src="../assets/images/desc.png" alt="">
+              <div class="addPic" @click="loadImageLocal">
+                +
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -92,16 +108,24 @@
                 </el-option>
               </el-select>
             </div>
-            <div class="addDesc" @click="editDesc(3)">
-              <img src="../assets/images/edit@2x.png" v-show="!desc3Visible" alt="">
-              <img src="../assets/images/delete@2x.png" v-show="desc3Visible" alt="">
-              <span v-show="!desc3Visible">添加描述</span>
-              <span v-show="desc3Visible" @click="deleteDesc(3)">删除描述</span>
+            <div class="addDesc" >
+              <img src="../assets/images/edit@2x.png" @click="editDesc(3)" class="icon_edit" alt="">
+              <img src="../assets/images/camera@2x.png" @click="handleCamera" class="icon_camera" alt="">
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc3Visible">
-            <textarea name="" id="desc" v-model="desc3"></textarea>
-            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
+            <div class="desc-text">
+              <textarea name="" id="desc" v-model="desc3"></textarea>
+              <div class="dsecClose" @click="deleteDesc(3)">
+                X
+              </div>
+            </div>
+            <div class="desc-pic clearfix">
+              <img src="../assets/images/desc.png" alt="">
+              <div class="addPic" @click="loadImageLocal">
+                +
+              </div>
+            </div>
           </div>
         </div>
         <div class="evaluate">
@@ -121,16 +145,24 @@
                 </el-option>
               </el-select>
             </div>
-            <div class="addDesc" @click="editDesc(4)">
-              <img src="../assets/images/edit@2x.png" v-show="!desc4Visible" alt="">
-              <img src="../assets/images/delete@2x.png" v-show="desc4Visible" alt="">
-              <span v-show="!desc4Visible">添加描述</span>
-              <span v-show="desc4Visible" @click="deleteDesc(4)">删除描述</span>
+            <div class="addDesc">
+              <img src="../assets/images/edit@2x.png" @click="editDesc(4)" class="icon_edit" alt="">
+              <img src="../assets/images/camera@2x.png" @click="handleCamera" class="icon_camera" alt="">
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc4Visible">
-            <textarea name="" id="desc" v-model="desc4"></textarea>
-            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
+            <div class="desc-text">
+              <textarea name="" id="desc" v-model="desc4"></textarea>
+              <div class="dsecClose" @click="deleteDesc(4)">
+                X
+              </div>
+            </div>
+            <div class="desc-pic clearfix">
+              <img src="../assets/images/desc.png" alt="">
+              <div class="addPic" @click="loadImageLocal">
+                +
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -157,16 +189,24 @@
                 </el-option>
               </el-select>
             </div>
-            <div class="addDesc" @click="editDesc(5)">
-              <img src="../assets/images/edit@2x.png" v-show="!desc5Visible" alt="">
-              <img src="../assets/images/delete@2x.png" v-show="desc5Visible" alt="">
-              <span v-show="!desc5Visible">添加描述</span>
-              <span v-show="desc5Visible" @click="deleteDesc(5)">删除描述</span>
+            <div class="addDesc">
+              <img src="../assets/images/edit@2x.png" @click="editDesc(5)" class="icon_edit" alt="">
+              <img src="../assets/images/camera@2x.png" @click="handleCamera" class="icon_camera" alt="">
             </div>
           </div>
           <div class="desc-wrapper" v-show="desc5Visible">
-            <textarea name="" id="desc" v-model="desc5"></textarea>
-            <img src="../assets/images/camera@2x.png" alt="" @click="handleCamera">
+            <div class="desc-text">
+              <textarea name="" id="desc" v-model="desc5"></textarea>
+              <div class="dsecClose" @click="deleteDesc(5)">
+                X
+              </div>
+            </div>
+            <div class="desc-pic clearfix">
+              <img src="../assets/images/desc.png" alt="">
+              <div class="addPic" @click="loadImageLocal">
+                +
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -301,7 +341,23 @@ export default {
     onSuccess (val) {
       alert(val)
     },
-    onFail () {
+    onFail (message) {
+      navigator.notification.alert("操作失败，原因：" + message, null, "警告")
+    },
+    loadImageLocal () {
+      /*eslint-disable*/
+      navigator.camera.getPicture(onLoadImageLocalSuccess, onLoadImageFail, {
+        destinationType: Camera.DestinationType.DATA_URL,
+        sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+      })
+      /*eslint-enable*/
+    },
+    onLoadImageLocalSuccess (imageURI) {
+      alert(imageURI)
+      // "data:image/jpeg;base64,"+imageURI;
+    },
+    onLoadImageFail (message) {
+      navigator.notification.alert("操作失败，原因：" + message, null, "警告")
     }
   },
   watch: {
@@ -309,6 +365,8 @@ export default {
       handler (val, oldVal) {
         if (val && this.desc2 && this.desc3 && this.desc4 && this.desc5) {
           this.btnStatus = true
+        } else {
+          this.btnStatus = false
         }
       }
     },
@@ -316,6 +374,8 @@ export default {
       handler (val, oldVal) {
         if (val && this.desc1 && this.desc3 && this.desc4 && this.desc5) {
           this.btnStatus = true
+        } else {
+          this.btnStatus = false
         }
       }
     },
@@ -323,6 +383,8 @@ export default {
       handler (val, oldVal) {
         if (val && this.desc1 && this.desc2 && this.desc4 && this.desc5) {
           this.btnStatus = true
+        } else {
+          this.btnStatus = false
         }
       }
     },
@@ -330,6 +392,8 @@ export default {
       handler (val, oldVal) {
         if (val && this.desc1 && this.desc2 && this.desc3 && this.desc5) {
           this.btnStatus = true
+        } else {
+          this.btnStatus = false
         }
       }
     },
@@ -337,6 +401,8 @@ export default {
       handler (val, oldVal) {
         if (val && this.desc1 && this.desc2 && this.desc3 && this.desc4) {
           this.btnStatus = true
+        } else {
+          this.btnStatus = false
         }
       }
     }
@@ -385,7 +451,7 @@ export default {
           border-bottom: 1px solid #C8C7CC;
 
           p {
-            padding: 0rem 0 0.13rem 0;
+            padding: 0rem 0 0.02rem 0;
             font-size: 12px;
             color: #707070;
             letter-spacing: -0.5px;
@@ -424,11 +490,20 @@ export default {
 
             .addDesc {
               float: right;
-              margin-right: 16px;
+              margin-right: 20px;
 
-              img {
-                width: 16px;
+              .icon_edit {
+                width: 18px;
+                height: 18px;
+                margin-top: 7px;
+                vertical-align: middle;
+                margin-right: 15px;
+              }
+
+              .icon_camera {
+                width: 22px;
                 height: 16px;
+                margin-top: 8px;
                 vertical-align: middle;
               }
 
@@ -490,33 +565,75 @@ export default {
           }
 
           .desc-wrapper {
-            height: 0.6rem;
-            border: 1px solid #C7C7CD;
-            padding: 0.05rem 0.1rem;
-            position: relative;
-            box-sizing: border-box;
-            font-size: 12px;
-            margin: 0.16rem 20px 0 0;
-
-            textarea {
-              width: 2.38rem;
-              height: 0.45rem;
-              display: inline-block;
-              resize: none;
+            .desc-text {
+              height: 0.6rem;
+              border: 1px solid #C7C7CD;
+              padding: 0.05rem 0.1rem;
+              position: relative;
+              box-sizing: border-box;
               font-size: 12px;
-              color: #707070;
-              letter-spacing: -0.5px;
-              border: 0;
-              outline: 0;
+              margin: 0.16rem 20px 0 0;
+
+              textarea {
+                width: 2.88rem;
+                height: 0.45rem;
+                display: inline-block;
+                resize: none;
+                font-size: 12px;
+                color: #707070;
+                letter-spacing: -0.5px;
+                border: 0;
+                outline: 0;
+              }
+
+              .dsecClose {
+                position: absolute;
+                width: 18px;
+                height: 18px;
+                border: 1px solid #C7C7CD;
+                border-radius: 50%;
+                font-size: 12px;
+                line-height: 18px;
+                text-align: center;
+                color: #C7C7CD;
+                top: 5px;
+                right: 5px;
+              }
+
+              img {
+                width: 0.32rem;
+                height: 0.32rem;
+                display: inline-block;
+                position: absolute;
+                top: 0.14rem;
+                right: 0.2rem;
+              }
             }
 
-            img {
-              width: 0.32rem;
-              height: 0.32rem;
-              display: inline-block;
-              position: absolute;
-              top: 0.14rem;
-              right: 0.2rem;
+            .desc-pic {
+              margin-top: 9px;
+              font-size: 12px;
+              min-height: 0.48rem;
+              height: auto;
+
+              img {
+                width: 0.48rem;
+                height: 0.48rem;
+                margin-right: 8px;
+                float: left;
+              }
+
+              .addPic {
+                width: 0.48rem;
+                height: 0.48rem;
+                border: 1px solid #C7C7CD;
+                box-sizing: border-box;
+                font-size: 24px;
+                color: #C7C7CD;
+                text-align: center;
+                line-height: 0.48rem;
+                float: left;
+              }
             }
           }
         }

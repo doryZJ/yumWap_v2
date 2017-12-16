@@ -4,6 +4,10 @@
       <div class="back" @click="goBack"><返回</div>
       <span>创建维修申请</span>
     </div>
+    <div class="message">
+      <img src="../assets/images/confrim@2x.png" alt="">
+      <span>您已成功创建维修申请</span>
+    </div>
     <div class="basicInfo">
       <div class="head">基本信息</div>
       <div class="info-content">
@@ -21,13 +25,10 @@
         </div>
         <div class="info">
           <span class="label">紧急程度</span>
-          <span class="value" @click="handleUrgent">{{urgentSelected}}
-            <img src="../assets/images/Gray Copy 11.png" alt="">
-          </span>
+          <span class="value">{{urgentSelected}}</span>
         </div>
       </div>
     </div>
-    <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
     <div class="fault-wrapper">
       <div class="head">故障明细</div>
       <div class="fault">
@@ -40,8 +41,6 @@
       <div class="head">
         <div class="clearfix">
           <span class="name">维修明细</span>
-          <span class="edit" v-show="!isEdit" @click="handleEdit">编辑</span>
-          <span class="edit" v-show="isEdit" @click="handleComplete">完成</span>
         </div>
       </div>
       <div class="repair-list">
@@ -49,15 +48,9 @@
           <li class="clearfix" v-for="(item, index) in repairList" :key="index">
             <span class="name">{{item.name}}</span>
             <div class="count">
-              <span class="price" :class="{'pricePadding': isEdit}">{{item.price}}元/个</span>
-              <img src="../assets/images/minus@2x.png" @click="handleReduce(index)" class="btn-minus" :class="{'minus': item.count === 1}" v-show="item.count && isEdit" alt="">
+              <span class="price">{{item.price}}元/个</span>
               <span class="number" v-show="item.count">  x {{item.count}}</span>
-              <img src="../assets/images/Add@2x.png" @click="handleAdd(index)" class="btn-add" v-show="isEdit" alt="">
             </div>
-          </li>
-          <li @click="addParts">
-            <img src="../assets/images/add_small@2x.png" alt="">
-            <span class="addParts">新增零件</span>
           </li>
         </ul>
       </div>
@@ -66,34 +59,23 @@
       <div class="head">
         <div class="clearfix">
           <span class="name">维修明细</span>
-          <img src="../assets/images/camera@2x.png" @click="handleCamera" alt="">
         </div>
       </div>
       <textarea class="remark" v-model="remark"></textarea>
     </div>
     <div class="btn-wrapper">
-      <div class="btn" @click="handleCreate">创 建</div>
+      <div class="btn" @click="handleReturn">返回首页</div>
     </div>
   </div>
 </template>
 <script>
   export default {
     data () {
-      const route = this.$route
-      const routePath = route.path
-      let isEdit = false
-      if (routePath.indexOf('edit') >= 0) {
-        isEdit = true
-      }
-      console.log('isEdit', isEdit)
       return {
-        isEdit,
         store: '52192489475',
         repairType: '冷链系统',
         source: '日检',
         urgentSelected: '一般',
-        sheetVisible: false,
-        actions: [],
         repairList: [
           {
             name: '气缸阀板密封垫床',
@@ -113,29 +95,11 @@
       goBack () {
         this.$router.go(-1)
       },
-      handleUrgent () {
-        this.sheetVisible = true
-      },
-      selectSort (val) {
-        this.urgentSelected = val.name
-      },
       addParts () {
         this.$router.push('/partLibrary')
       },
-      handleEdit () {
-        this.$router.push('/MaintenanceApplication/edit')
-      },
-      handleComplete () {
-        this.$router.push('/MaintenanceApplication')
-      },
-      handleAdd (index) {
-        this.repairList[index].count++
-      },
-      handleReduce (index) {
-        this.repairList[index].count--
-      },
-      handleCreate () {
-        this.$router.push('/mainApplicationSuccess')
+      handleReturn () {
+        this.$router.push('/StoreIndex')
       },
       handleCamera () {
         /*eslint-disable*/
@@ -151,32 +115,6 @@
         alert(val)
       },
       onFail () {
-      }
-    },
-    mounted () {
-      this.actions = [
-        {
-          name: '一般',
-          method: this.selectSort
-        },
-        {
-          name: '紧急',
-          method: this.selectSort
-        }
-      ]
-    },
-    watch: {
-      $route: {
-        handler: function (val, oldVal) {
-          if (val) {
-            const path = val.path
-            if (path.indexOf('edit') >= 0) {
-              this.isEdit = true
-            } else {
-              this.isEdit = false
-            }
-          }
-        }
       }
     }
   }
@@ -203,6 +141,29 @@
         position: absolute;
         left: 0.1rem;
         line-height: 28px;
+      }
+    }
+
+    .message {
+      padding: 28px 0;
+      height: 16px;
+      background: #00BFB3;
+      text-align: center;
+      font-size: 12px;
+
+      img {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      span {
+        font-size: 16px;
+        color: #FFFFFF;
+        letter-spacing: 0.08px;
+        vertical-align: middle;
+        margin-left: 6px;
+        display: inline-block;
       }
     }
 
@@ -415,11 +376,12 @@
       .btn {
         width: 1.37rem;
         height: 0.5rem;
-        background: #1792E5;
+        background: #FFFFFF;
+        border: 1px solid #1792E5;
         line-height: 0.5rem;
         text-align: center;
         font-size: 16px;
-        color: #FFFFFF;
+        color: #1792E5;
         letter-spacing: -0.89px;
         float: right;
         margin: 0 0.2rem 0 0;
