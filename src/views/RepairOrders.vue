@@ -64,7 +64,7 @@
       }
 
       .tab {
-        width: 33.33333333333333%;
+        width: 33.333333333333333333333333%;
         font-size: 13px;
         color: #00BFB3;
         letter-spacing: -0.08px;

@@ -88,14 +88,12 @@
 
     .title {
       position: relative;
-      font-family: SourceHanSansCN-Normal;
       font-size: 18px;
       color: #000000;
       padding: 0.12rem 0;
       text-align: center;
 
       .back {
-        font-family: SourceHanSansCN-Normal;
         font-size: 14px;
         color: #688BA6;
         letter-spacing: 0;
@@ -132,7 +130,6 @@
         }
 
         span {
-          font-family: SourceHanSansCN-Normal;
           font-size: 12px;
           color: #707070;
         }

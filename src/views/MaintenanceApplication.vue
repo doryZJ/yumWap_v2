@@ -57,7 +57,12 @@
       </div>
     </div>
     <div class="remark-wrapper">
-      <div class="head">备注</div>
+      <div class="head">
+        <div class="clearfix">
+          <span class="name">维修明细</span>
+          <img src="../assets/images/camera@2x.png" alt="">
+        </div>
+      </div>
       <textarea class="remark"></textarea>
     </div>
     <div class="btn-wrapper">
@@ -276,10 +281,21 @@
 
     .remark-wrapper {
       .head {
-        margin: 0.28rem 0 0.16rem 0.16rem;
-        font-size: 14px;
-        color: #707070;
-        letter-spacing: -0.58px;
+        margin: 0.28rem 0.16rem 0.16rem 0.16rem;
+        height: 16px;
+
+        .name {
+          float: left;
+          font-size: 14px;
+          color: #707070;
+          letter-spacing: -0.58px;
+        }
+
+        img {
+          float: right;
+          width: 22px;
+          height: 16px;
+        }
       }
 
       .remark {

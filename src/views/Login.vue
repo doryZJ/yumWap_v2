@@ -99,7 +99,6 @@
       height: 1.56rem;
 
       span {
-        font-family: SourceHanSansCN-Medium;
         font-size: 0.24rem;
         color: #FFFFFF;
         letter-spacing: 0;
@@ -151,7 +150,6 @@
           justify-content: center;
           align-items: center;
           background: #D53A2A;
-          font-family: SourceHanSansCN-Light;
           font-size: 18px;
           color: #FFFFFF!important;
           letter-spacing: 3px;
@@ -160,7 +158,6 @@
 
         .label {
           margin: 0.12rem auto 0;
-          font-family: SourceHanSansCN-Light;
           font-size: 12px;
           color: #FFFFFF;
           letter-spacing: 0;
@@ -179,7 +176,6 @@
       font-size: 12px;
 
       p {
-        font-family: SourceHanSansCN-Light;
         font-size: 12px;
         color: #FFFFFF;
         letter-spacing: 0;
@@ -188,7 +184,6 @@
       }
 
       span {
-        font-family: HoneywellSans-Medium;
         font-size: 10px;
         color: #FFFFFF;
         letter-spacing: 0;

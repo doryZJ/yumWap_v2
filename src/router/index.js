@@ -21,6 +21,7 @@ import InspectionStepFour from '@/views/InspectionStepFour'
 import InspectionSubmit from '@/views/InspectionSubmit'
 import MaintenanceApplication from '@/views/MaintenanceApplication'
 import PartLibrary from '@/views/PartLibrary'
+import MyCount from '@/views/MyCount'
 
 Vue.use(Router)
 
@@ -131,6 +132,11 @@ const router = new Router({
       path: '/partLibrary',
       name: 'PartLibrary',
       component: PartLibrary
+    },
+    {
+      path: '/myCount',
+      name: 'MyCount',
+      component: MyCount
     }
   ]
 })
