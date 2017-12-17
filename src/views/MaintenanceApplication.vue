@@ -21,9 +21,10 @@
         </div>
         <div class="info">
           <span class="label">紧急程度</span>
-          <span class="value" @click="handleUrgent">{{urgentSelected}}
+          <p class="value" @click="handleUrgent">
+            <span>{{urgentSelected}}</span>
             <img src="../assets/images/Gray Copy 11.png" alt="">
-          </span>
+          </p>
         </div>
       </div>
     </div>
@@ -85,7 +86,6 @@
       if (routePath.indexOf('edit') >= 0) {
         isEdit = true
       }
-      console.log('isEdit', isEdit)
       return {
         isEdit,
         store: '52192489475',
@@ -241,9 +241,16 @@
             letter-spacing: -0.58px;
             line-height: 28px;
             float: right;
+            margin: 0;
+
+            span {
+              float: left;
+            }
 
             img {
-              margin-left: 5px;
+              float: left;
+              margin-left: 10px;
+              margin-top: 8px;
             }
           }
         }

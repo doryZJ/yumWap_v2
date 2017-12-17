@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="photo clearfix">
-        <div class="addPic">
+        <div class="addPic" @click="loadImageLocal">
           <img src="../assets/images/addphoto@2x.png" alt="">
         </div>
       </div>
@@ -68,6 +68,22 @@
       },
       handleSelect (val) {
         this.select1 = val
+      },
+      loadImageLocal () {
+      /*eslint-disable*/
+        navigator.camera.getPicture(this.onLoadImageLocalSuccess, this.onLoadImageFail, {
+          quality: 50,
+          destinationType: Camera.DestinationType.DATA_URL,
+          sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+        })
+        /*eslint-enable*/
+      },
+      onLoadImageLocalSuccess (imageURI) {
+        alert(imageURI)
+        // "data:image/jpeg;base64,"+imageURI;
+      },
+      onLoadImageFail (message) {
+        navigator.notification.alert('操作失败，原因：' + message, null, '警告')
       }
     }
   }

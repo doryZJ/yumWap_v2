@@ -332,21 +332,21 @@ export default {
       /*eslint-disable*/
       navigator.camera.getPicture(this.onSuccess, this.onFail, {
         quality: 50,
-        destinationType: Camera.DestinationType.DATA_URL,
-        encodingType: Camera.EncodingType.JPEG,
-        sourceType: this.mySourceType
+        destinationType: Camera.DestinationType.DATA_URL
       })
       /*eslint-enable*/
     },
     onSuccess (val) {
-      alert(val)
+      const url = 'data:image/jpeg;base64,' + val
+      alert(url)
     },
     onFail (message) {
       navigator.notification.alert('操作失败，原因：' + message, null, '警告')
     },
     loadImageLocal () {
       /*eslint-disable*/
-      navigator.camera.getPicture(onLoadImageLocalSuccess, onLoadImageFail, {
+      navigator.camera.getPicture(this.onLoadImageLocalSuccess, this.onLoadImageFail, {
+        quality: 50,
         destinationType: Camera.DestinationType.DATA_URL,
         sourceType: Camera.PictureSourceType.PHOTOLIBRARY
       })
@@ -461,6 +461,7 @@ export default {
             font-size: 12px;
             position: relative;
             height: 0.32rem;
+            margin-top: 0.14rem;
 
             .evaluate-select-box {
               float: left;

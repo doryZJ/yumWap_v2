@@ -30,7 +30,7 @@
                 </div>
               </div>
               <div class="warning">
-                <img src="../assets/images/icon_information_22x22.png" alt="">
+                <img src="../assets/images/icon_information_22x22@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -273,6 +273,11 @@
               margin-left: 0.2rem;
               display: flex;
               align-items: center;
+
+              img {
+                width: 22px;
+                height: 22px;
+              }
             }
           }
         }

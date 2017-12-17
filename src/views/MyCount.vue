@@ -164,6 +164,12 @@
         margin: 0 0.2rem 0 0;
       }
     }
+    @media (min-width: 360px) {
+      .btn-wrapper {
+        padding: 0.5rem 0 0.2rem 0;
+      }
+    }
+
     @media (min-width: 414px) {
       .btn-wrapper {
         padding: 1.37rem 0 0.2rem 0;

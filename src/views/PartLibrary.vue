@@ -22,7 +22,7 @@
     <parts-list></parts-list>
     <div class="btn-wrapper">
       <div class="btn btn-prev" @click="handlePrev">返 回</div>
-      <div class="btn btn-next" :class="{'active': btnStatus}" @click="handleConfirm">确 定</div>
+      <div class="btn btn-next" @click="handleConfirm">确 定</div>
     </div>
   </div>
 </template>
@@ -92,7 +92,6 @@
     background: #F4F8FB;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 
     .title {
       position: relative;
@@ -155,7 +154,7 @@
     .btn-wrapper {
       height: 0.5rem;
       padding: 0.1rem 0;
-      position: absolute;
+      position: fixed;
       bottom: 0;
       background: #fff;
       width: 100%;
@@ -192,11 +191,6 @@
         font-size: 16px;
         color: #FFFFFF;
         letter-spacing: -0.89px;
-      }
-
-      .active {
-        background: #1792E5;
-        border: 1px solid #1792E5;
       }
     }
   }
