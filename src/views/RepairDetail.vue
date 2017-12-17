@@ -1,105 +1,107 @@
 <template>
-  <div class="RepairDetail">
-    <div class="title">
-      <div class="back" @click="goBack"><返回</div>
-      <span>维修工单</span>
-    </div>
-    <div class="orderInfo">
-      <div class="head clearfix">
-        <div class="head-left clearfix">
-          <div class="orderState">急</div>
-          <div class="order-content">
-            <p class="order-title">{{orderTitle}}</p>
-            <p class="store">{{orderStore}}</p>
+  <transition name="slide">
+    <div class="RepairDetail">
+      <div class="title">
+        <div class="back" @click="goBack"><返回</div>
+        <span>维修工单</span>
+      </div>
+      <div class="orderInfo">
+        <div class="head clearfix">
+          <div class="head-left clearfix">
+            <div class="orderState">急</div>
+            <div class="order-content">
+              <p class="order-title">{{orderTitle}}</p>
+              <p class="store">{{orderStore}}</p>
+            </div>
+          </div>
+          <div class="head-right">{{distance}}m</div>
+        </div>
+        <div class="store-info clearfix">
+          <div class="store-tel">
+            <img src="../assets/images/tel@2x.png" alt="">
+            <span>{{tel}}</span>
+          </div>
+          <div class="store-place">
+            <img src="../assets/images/place@2x.png" alt="">
+            <span>查看门店位置</span>
           </div>
         </div>
-        <div class="head-right">{{distance}}m</div>
       </div>
-      <div class="store-info clearfix">
-        <div class="store-tel">
-          <img src="../assets/images/tel@2x.png" alt="">
-          <span>{{tel}}</span>
+      <div class="basicInfo">
+        <div class="head">基本信息</div>
+        <div class="info-content">
+          <div class="info">
+            <span class="label">门店</span>
+            <span class="value">{{store}}</span>
+          </div>
+          <div class="info">
+            <span class="label">维修类型</span>
+            <span class="value">{{repairType}}</span>
+          </div>
+          <div class="info">
+            <span class="label">来源</span>
+            <span class="value">{{source}}</span>
+          </div>
+          <div class="info">
+            <span class="label">创建时间</span>
+            <span class="value">{{createTime}}</span>
+          </div>
+          <div class="info">
+            <span class="label">工单号</span>
+            <span class="value">{{no}}</span>
+          </div>
+          <div class="info">
+            <span class="label">状态</span>
+            <span class="value">{{state}}</span>
+          </div>
+          <div class="info">
+            <span class="label">图片</span>
+            <p class="value">
+              <span>{{urgentSelected}}</span>
+              <img src="../assets/images/Gray Copy 11.png" alt="">
+            </p>
+          </div>
         </div>
-        <div class="store-place">
-          <img src="../assets/images/place@2x.png" alt="">
-          <span>查看门店位置</span>
+      </div>
+      <div class="fault-wrapper">
+        <div class="head">故障明细</div>
+        <div class="fault">
+          <p>1， 制冷剂水温异常，当前水温24，设定温度48；</p>
+          <p>2，进水水温异常，当前水温20，设定温度48；</p>
+          <p>3，机组覆盖物未通过检查。</p>
         </div>
+      </div>
+      <div class="repair-wrapper">
+        <div class="head">
+          <div class="clearfix">
+            <span class="name">维修明细</span>
+          </div>
+        </div>
+        <div class="repair-list">
+          <ul>
+            <li class="clearfix" v-for="(item, index) in repairList" :key="index">
+              <span class="name">{{item.name}}</span>
+              <div class="count">
+                <span class="price">{{item.price}}元/个</span>
+                <span class="number" v-show="item.count">  x {{item.count}}</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="remark-wrapper">
+        <div class="head">
+          <div class="clearfix">
+            <span class="name">备注</span>
+          </div>
+        </div>
+        <textarea class="remark" v-model="remark"></textarea>
+      </div>
+      <div class="btn-wrapper">
+        <div class="btn" @click="handleCreate">填写维修记录</div>
       </div>
     </div>
-    <div class="basicInfo">
-      <div class="head">基本信息</div>
-      <div class="info-content">
-        <div class="info">
-          <span class="label">门店</span>
-          <span class="value">{{store}}</span>
-        </div>
-        <div class="info">
-          <span class="label">维修类型</span>
-          <span class="value">{{repairType}}</span>
-        </div>
-        <div class="info">
-          <span class="label">来源</span>
-          <span class="value">{{source}}</span>
-        </div>
-        <div class="info">
-          <span class="label">创建时间</span>
-          <span class="value">{{createTime}}</span>
-        </div>
-        <div class="info">
-          <span class="label">工单号</span>
-          <span class="value">{{no}}</span>
-        </div>
-        <div class="info">
-          <span class="label">状态</span>
-          <span class="value">{{state}}</span>
-        </div>
-        <div class="info">
-          <span class="label">图片</span>
-          <p class="value">
-            <span>{{urgentSelected}}</span>
-            <img src="../assets/images/Gray Copy 11.png" alt="">
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="fault-wrapper">
-      <div class="head">故障明细</div>
-      <div class="fault">
-        <p>1， 制冷剂水温异常，当前水温24，设定温度48；</p>
-        <p>2，进水水温异常，当前水温20，设定温度48；</p>
-        <p>3，机组覆盖物未通过检查。</p>
-      </div>
-    </div>
-    <div class="repair-wrapper">
-      <div class="head">
-        <div class="clearfix">
-          <span class="name">维修明细</span>
-        </div>
-      </div>
-      <div class="repair-list">
-        <ul>
-          <li class="clearfix" v-for="(item, index) in repairList" :key="index">
-            <span class="name">{{item.name}}</span>
-            <div class="count">
-              <span class="price">{{item.price}}元/个</span>
-              <span class="number" v-show="item.count">  x {{item.count}}</span>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="remark-wrapper">
-      <div class="head">
-        <div class="clearfix">
-          <span class="name">备注</span>
-        </div>
-      </div>
-      <textarea class="remark" v-model="remark"></textarea>
-    </div>
-    <div class="btn-wrapper">
-      <div class="btn" @click="handleCreate">填写维修记录</div>
-    </div>
-  </div>
+  </transition>
 </template>
 <script>
   export default {
@@ -504,6 +506,14 @@
         margin: 0 0.2rem 0 0;
       }
     }
+  }
+
+  .slide-enter-active, .slide-leave-active {
+    transition: all .5s;
+  }
+  .slide-enter {
+    transform: translateX(100%);
+    opacity: 1;
   }
 </style>
 

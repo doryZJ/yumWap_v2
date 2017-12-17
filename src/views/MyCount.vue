@@ -144,7 +144,7 @@
 
     .btn-wrapper {
       height: 0.5rem;
-      padding: 0.8rem 0 0.2rem 0;
+      padding: 0.7rem 0 0.2rem 0;
 
       &::after {
         content: '';

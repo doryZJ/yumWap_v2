@@ -42,7 +42,7 @@
             <div class="desc-pic clearfix">
               <img src="../assets/images/desc.png" alt="">
               <div class="addPic" @click="loadImageLocal">
-                +
+                <img src="../assets/images/addphoto@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@
             <div class="desc-pic clearfix">
               <img src="../assets/images/desc.png" alt="">
               <div class="addPic" @click="loadImageLocal">
-                +
+                <img src="../assets/images/addphoto@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -123,7 +123,7 @@
             <div class="desc-pic clearfix">
               <img src="../assets/images/desc.png" alt="">
               <div class="addPic" @click="loadImageLocal">
-                +
+                <img src="../assets/images/addphoto@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -160,7 +160,7 @@
             <div class="desc-pic clearfix">
               <img src="../assets/images/desc.png" alt="">
               <div class="addPic" @click="loadImageLocal">
-                +
+                <img src="../assets/images/addphoto@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -204,7 +204,7 @@
             <div class="desc-pic clearfix">
               <img src="../assets/images/desc.png" alt="">
               <div class="addPic" @click="loadImageLocal">
-                +
+                <img src="../assets/images/addphoto@2x.png" alt="">
               </div>
             </div>
           </div>
@@ -342,7 +342,7 @@ export default {
       alert(val)
     },
     onFail (message) {
-      navigator.notification.alert("操作失败，原因：" + message, null, "警告")
+      navigator.notification.alert('操作失败，原因：' + message, null, '警告')
     },
     loadImageLocal () {
       /*eslint-disable*/
@@ -357,7 +357,7 @@ export default {
       // "data:image/jpeg;base64,"+imageURI;
     },
     onLoadImageFail (message) {
-      navigator.notification.alert("操作失败，原因：" + message, null, "警告")
+      navigator.notification.alert('操作失败，原因：' + message, null, '警告')
     }
   },
   watch: {
@@ -626,13 +626,15 @@ export default {
               .addPic {
                 width: 0.48rem;
                 height: 0.48rem;
-                border: 1px solid #C7C7CD;
-                box-sizing: border-box;
-                font-size: 24px;
                 color: #C7C7CD;
                 text-align: center;
-                line-height: 0.48rem;
                 float: left;
+
+                img {
+                  width: 100%;
+                  height: 100%;
+                  display: inline-block;
+                }
               }
             }
           }

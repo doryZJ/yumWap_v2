@@ -68,7 +68,7 @@
             name: '冷冻冰箱',
             model: 'WTC-CS-800',
             modulus: '温度：-11.8℃',
-            variety: 1, // 0:上升，1: 下降
+            variety: 0, // 0:上升，1: 下降
             setup: '设定：-12.0℃'
           }
         ]
@@ -161,7 +161,7 @@
   .slide-enter-active, .slide-leave-active {
     transition: all .5s;
   }
-  .slide-enter /* .fade-leave-active in below version 2.1.8 */ {
+  .slide-enter {
     transform: translateX(100%);
     opacity: 1;
   }

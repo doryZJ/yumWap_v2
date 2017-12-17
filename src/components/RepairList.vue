@@ -61,7 +61,7 @@
 </script>
 <style lang="scss">
   .inspectionList {
-    margin-top: 0.35rem;
+    margin-top: 0.11rem;
     font-size: 0;
     height: calc(100% - 1.9rem);
 

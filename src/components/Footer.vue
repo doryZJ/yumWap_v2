@@ -11,14 +11,14 @@
   </div>
 </template>
 <script>
-  import iconHomeOff from '@/assets/images/icon_home_off_24x23.png'
-  import iconTargetOff from '@/assets/images/icon_target_off_24x24.png'
-  import iconEquipmentOff from '@/assets/images/icon_equipment_off_24x22.png'
-  import iconMyaccountOff from '@/assets/images/icon_myaccount_off_24x23.png'
-  import iconHomeOn from '@/assets/images/icon_home_on_24x23.png'
-  import iconTargetOn from '@/assets/images/icon_target_on_24x24.png'
-  import iconEquipmentOn from '@/assets/images/icon_equipment_on_24x22.png'
-  import iconMyaccountOn from '@/assets/images/icon_myaccount_on_24x23.png'
+  import iconHomeOff from '@/assets/images/icon_home_off_24x23@2x.png'
+  import iconTargetOff from '@/assets/images/icon_target_off_24x24@2x.png'
+  import iconEquipmentOff from '@/assets/images/icon_equipment_off_24x22@2x.png'
+  import iconMyaccountOff from '@/assets/images/icon_myaccount_off_24x23@2x.png'
+  import iconHomeOn from '@/assets/images/icon_home_on_24x23@2x.png'
+  import iconTargetOn from '@/assets/images/icon_target_on_24x24@2x.png'
+  import iconEquipmentOn from '@/assets/images/icon_equipment_on_24x22@2x.png'
+  import iconMyaccountOn from '@/assets/images/icon_myaccount_on_24x23@2x.png'
   import iconRepairOff from '@/assets/images/icon_repair_off@2x.png'
   import iconRepairOn from '@/assets/images/icon_repair_on@2x.png'
   export default {
@@ -82,7 +82,7 @@
       float: left;
 
       img {
-        height: 23px;
+        height: 22px;
         display: block;
         margin: 0 auto;
       }

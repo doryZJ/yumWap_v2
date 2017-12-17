@@ -45,12 +45,12 @@
       </div>
       <div class="photo clearfix">
         <div class="addPic">
-          +
+          <img src="../assets/images/addphoto@2x.png" alt="">
         </div>
       </div>
     </div>
     <div class="btn-wrapper">
-      <div class="btn" @click="">提 交</div>
+      <div class="btn">提 交</div>
     </div>
   </div>
 </template>
@@ -232,13 +232,15 @@
         .addPic {
           width: 0.48rem;
           height: 0.48rem;
-          border: 1px solid #C7C7CD;
-          box-sizing: border-box;
-          font-size: 24px;
           color: #C7C7CD;
           text-align: center;
-          line-height: 0.48rem;
           float: left;
+
+          img {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+          }
         }
       }
     }

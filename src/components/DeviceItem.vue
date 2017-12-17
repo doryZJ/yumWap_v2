@@ -2,12 +2,12 @@
   <div class="deviceItem">
     <div class="item">
       <div class="item-left">
-        <img src="../assets/images/icon_on_36x36.png" v-show="item.state === 0" alt="">
-        <img src="../assets/images/icon_standby_36x36.png" v-show="item.state === 1" alt="">
-        <img src="../assets/images/icon_off_36x36.png" v-show="item.state === 2" alt="">
-        <img src="../assets/images/icon_alarm_low_36x33.png" v-show="item.state === 3" alt="">
-        <img src="../assets/images/icon_alarm_mid_36x33.png" v-show="item.state === 4" alt="">
-        <img src="../assets/images/icon_alarm_high_36x33.png" v-show="item.state === 5" alt="">
+        <img src="../assets/images/icon_on_36x36@2x.png" v-show="item.state === 0" alt="">
+        <img src="../assets/images/icon_standby_36x36@2x.png" v-show="item.state === 1" alt="">
+        <img src="../assets/images/icon_off_36x36@2x.png" v-show="item.state === 2" alt="">
+        <img src="../assets/images/icon_alarm_offline_36x33@2x.png" v-show="item.state === 3" alt="">
+        <img src="../assets/images/icon_alarm_mid_36x33@2x.png" v-show="item.state === 4" alt="">
+        <img src="../assets/images/icon_alarm_high_36x33@2x.png" v-show="item.state === 5" alt="">
         <div class="product">
           <p>{{item.name}}</p>
           <span>{{item.model}}</span>
@@ -18,7 +18,7 @@
           <div class="modulus-name">
             <span>{{item.modulus}}</span>
             <img src="../assets/images/icon_triangle_up_6x6@2x.png" v-show="item.variety === 0" alt="">
-            <img src="../assets/images/icon_triangle_down_6x6.png" v-show="item.variety === 1" alt="">
+            <img src="../assets/images/icon_triangle_down_6x6@2x.png" v-show="item.variety === 1" alt="">
           </div>
           <div class="setup" v-show="item.setup">
             {{item.setup}}
@@ -62,6 +62,8 @@
         }
 
         img {
+          width: 36px;
+          height: auto;
           margin-right: 0.1rem;
           float: left;
         }
@@ -95,7 +97,7 @@
         .modulus {
           .modulus-name {
             height: 20px;
-            
+
             span {
               font-size: 14px;
               color: #707070;

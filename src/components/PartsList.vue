@@ -1,7 +1,9 @@
 <template>
   <div class="partsList">
     <!-- <scroll class="list-wrapper"> -->
-      <ul>
+      <ul v-infinite-scroll="loadMore"
+          infinite-scroll-disabled="loading"
+          infinite-scroll-distance="8">
         <li v-for="(item, index) in list" :key="index">
           <span class="name">{{item.name}}</span>
           <div class="count">
@@ -51,32 +53,9 @@
           {
             name: '制冷剂',
             count: 0
-          },
-          {
-            name: '气缸阀板密封垫床',
-            count: 0
-          },
-          {
-            name: '制冷剂',
-            count: 0
-          },
-          {
-            name: '气缸阀板密封垫床',
-            count: 0
-          },
-          {
-            name: '制冷剂',
-            count: 0
-          },
-          {
-            name: '气缸阀板密封垫床',
-            count: 0
-          },
-          {
-            name: '制冷剂',
-            count: 0
           }
-        ]
+        ],
+        loading: false
       }
     },
     components: {
@@ -88,6 +67,16 @@
       },
       handleReduce (index) {
         this.list[index].count--
+      },
+      loadMore () {
+        this.loading = true
+        setTimeout(() => {
+          let last = this.list[this.list.length - 1]
+          for (let i = 1; i <= 10; i++) {
+            this.list.push(last)
+          }
+          this.loading = false
+        }, 2000)
       }
     }
   }
@@ -97,7 +86,7 @@
     margin-top: 0.35rem;
     font-size: 0;
     height: calc(100% - 1.82rem);
-    overflow: hidden;
+    overflow: scroll;
 
     .list-wrapper {
       width: 100%;
@@ -110,8 +99,6 @@
     ul {
       background: #fff;
       padding-left: 0.16rem;
-      height: 100%;
-      overflow: auto;
       
       li {
         padding: 0.2rem 0;

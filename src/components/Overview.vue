@@ -1,8 +1,8 @@
 <template>
   <div class="Overview">
     <div class="head">
-      <img src="../assets/images/icon_energy_consumption_18x18.png" v-show="overviewType === 0" alt="">
-      <img src="../assets/images/icon_maintenance_18x18.png" v-show="overviewType !== 0" alt="">
+      <img src="../assets/images/icon_energy_consumption_18x18@2x.png" v-show="overviewType === 0" alt="">
+      <img src="../assets/images/icon_maintenance_18x18@2x.png" v-show="overviewType !== 0" alt="">
       <span>{{title}}</span>
     </div>
     <div class="content" v-if="overviewParams">
