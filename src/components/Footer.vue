@@ -32,12 +32,12 @@
         navList: [
           {
             icon: iconHome,
-            name: '门店首页',
+            name: '总览',
             url: '/storeIndex'
           },
           {
             icon: iconTarget,
-            name: '巡检工单',
+            name: '工单',
             url: '/inspectionOrders'
           },
           {

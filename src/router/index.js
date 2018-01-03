@@ -25,6 +25,7 @@ import MyCount from '@/views/MyCount'
 import MainApplicationSuccess from '@/views/MainApplicationSuccess'
 import RepairDetail from '@/views/RepairDetail'
 import RepairRecord from '@/views/RepairRecord'
+import RepairOrderDetail from '@/views/RepairOrderDetail'
 
 Vue.use(Router)
 
@@ -160,6 +161,11 @@ const router = new Router({
       path: '/repairRecord',
       name: 'RepairRecord',
       component: RepairRecord
+    },
+    {
+      path: '/repairOrderDetail',
+      name: 'RepairOrderDetail',
+      component: RepairOrderDetail
     }
   ],
   scrollBehavior (to, from, savedPosition) {
