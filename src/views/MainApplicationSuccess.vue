@@ -125,6 +125,7 @@
     width: 100%;
     min-height: 100%;
     height: auto;
+    padding-bottom: 0.9rem;
 
     .title {
       position: relative;
@@ -365,8 +366,13 @@
     }
 
     .btn-wrapper {
-      height: 0.5rem;
-      padding: 0.3rem 0 0.2rem 0;
+      height: 0.9rem;
+      padding: 0.2rem 30px 0.2rem 30px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+      position: fixed;
+      bottom: 0;
 
       &::after {
         content: '';
@@ -374,7 +380,7 @@
       }
 
       .btn {
-        width: 1.37rem;
+        width: 100%;
         height: 0.5rem;
         background: #FFFFFF;
         border: 1px solid #1792E5;
@@ -383,8 +389,6 @@
         font-size: 16px;
         color: #1792E5;
         letter-spacing: -0.89px;
-        float: right;
-        margin: 0 0.2rem 0 0;
       }
     }
   }

@@ -68,6 +68,7 @@
     width: 100%;
     min-height: 100%;
     height: auto;
+    padding-bottom: 0.5rem;
 
     .title {
       position: relative;
@@ -175,8 +176,12 @@
     }
 
     .btn-wrapper {
-      height: 0.5rem;
-      padding: 0.46rem 0 0.2rem 0;
+      padding: 0.2rem 30px 0.2rem 30px;
+      width: 100%;
+      background: #fff;
+      box-sizing: border-box;
+      position: fixed;
+      bottom: 0;
 
       &::after {
         content: '';
@@ -190,7 +195,6 @@
 
       .btn-prev {
         float: left;
-        margin: 0 0rem 0 0.2rem;
         background: #FFFFFF;
         border: 1px solid #1792E5;
         line-height: 0.5rem;
@@ -202,7 +206,6 @@
 
       .btn-next {
         float: right;
-        margin: 0 0.2rem 0 0;
         background: #1792E5;
         border: 1px solid #1792E5;
         line-height: 0.5rem;
