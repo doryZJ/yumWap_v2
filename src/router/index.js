@@ -26,6 +26,8 @@ import MainApplicationSuccess from '@/views/MainApplicationSuccess'
 import RepairDetail from '@/views/RepairDetail'
 import RepairRecord from '@/views/RepairRecord'
 import RepairOrderDetail from '@/views/RepairOrderDetail'
+import EnergyTotal from '@/views/EnergyTotal'
+import AlarmOverview from '@/views/AlarmOverview'
 
 Vue.use(Router)
 
@@ -166,6 +168,16 @@ const router = new Router({
       path: '/repairOrderDetail',
       name: 'RepairOrderDetail',
       component: RepairOrderDetail
+    },
+    {
+      path: '/energyTotal',
+      name: 'EnergyTotal',
+      component: EnergyTotal
+    },
+    {
+      path: '/alarmOverview',
+      name: 'AlarmOverview',
+      component: AlarmOverview
     }
   ],
   scrollBehavior (to, from, savedPosition) {
