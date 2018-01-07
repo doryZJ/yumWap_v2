@@ -49,6 +49,18 @@
       OrderSortList,
       YFooter
     },
+    mounted () {
+      this.actions = [
+        {
+          name: '时间',
+          method: this.selectSort
+        },
+        {
+          name: '空间',
+          method: this.selectSort
+        }
+      ]
+    },
     methods: {
       handleTab (val) {
         this.tabActive = val

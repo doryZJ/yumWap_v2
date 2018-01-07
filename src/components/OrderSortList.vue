@@ -95,7 +95,7 @@
     },
     methods: {
       handleItem () {
-        this.$router.push('/repairDetail')
+        this.$router.push('/repairOrderDetail')
       }
     }
   }

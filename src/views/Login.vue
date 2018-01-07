@@ -56,7 +56,7 @@
       },
       handleLogin () {
         if (this.checkLogin()) {
-          this.$router.push('/storeIndex')
+          this.$router.push('/alarmOverview')
         }
       },
       checkLogin () {

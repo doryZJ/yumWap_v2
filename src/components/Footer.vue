@@ -33,17 +33,17 @@
           {
             icon: iconHome,
             name: '总览',
-            url: '/storeIndex'
+            url: '/alarmOverview'
           },
           {
             icon: iconTarget,
             name: '工单',
-            url: '/inspectionOrders'
+            url: '/ordersList'
           },
           {
             icon: iconRepair,
-            name: '维修工单',
-            url: '/repairOrders'
+            name: '能量',
+            url: '/energyTotal'
           },
           {
             icon: iconEquipment,

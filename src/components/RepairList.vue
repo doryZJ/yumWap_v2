@@ -1,6 +1,5 @@
 <template>
   <div class="inspectionList">
-    <!-- <scroll class="list-wrapper"> -->
       <div class="list-date">{{date[0]}}</div>
       <ul>
         <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
@@ -13,11 +12,9 @@
           <inspection-item :item="item"></inspection-item>
         </li>
       </ul>
-    <!-- </scroll> -->
   </div>
 </template>
 <script>
-  // import Scroll from './Scroll'
   import InspectionItem from './InspectionItem'
   export default {
     data () {
@@ -61,7 +58,6 @@
       }
     },
     components: {
-      // Scroll,
       InspectionItem
     },
     methods: {
