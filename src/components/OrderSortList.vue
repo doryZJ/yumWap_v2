@@ -1,5 +1,5 @@
 <template>
-  <div class="inspectionList">
+  <div class="orderSortList">
       <ul>
         <li v-for="(item, index) in list" :key="index" @click.prevent="handleItem">
           <order-item :item="item"></order-item>
@@ -101,8 +101,7 @@
   }
 </script>
 <style lang="scss">
-  .inspectionList {
-    margin-top: 0.11rem;
+  .orderSortList {
     font-size: 0;
     height: calc(100% - 1.9rem);
 

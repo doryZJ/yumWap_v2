@@ -28,6 +28,17 @@
       </div>
     </div>
     <mt-actionsheet :actions="actions" v-model="sheetVisible"></mt-actionsheet>
+    <div class="vueCalendar-wrapper">
+      <calendar :view="view" :decorate="decorate" :sub="sub" 
+      :current-view.sync="currentView" 
+      :start-date.sync="startDate" 
+      :indicator="indicator" :start-monday="true" 
+      @prev="prev" @next="next" @today="today"
+      @selectDay="selectDay"
+      :selected="selected"
+      @handleStartDate="handleStartDate">
+      </calendar>
+    </div>
     <order-sortList></order-sortList>
     <y-footer :nav="footerNav"></y-footer>
   </div>
@@ -35,6 +46,8 @@
 <script>
   import OrderSortList from '@/components/OrderSortList'
   import YFooter from '@/components/Footer'
+  import moment from 'moment'
+  import calendar from '@/components/calendar'
   export default {
     data () {
       return {
@@ -42,12 +55,30 @@
         tabActive: 0,
         sortName: '时间',
         sheetVisible: false,
-        actions: []
+        actions: [],
+        selectdate: '2018-1-08',
+        view: 'week',
+        decorate: {},
+        sub: {
+          '2016-12-22': {
+            content: '休',
+            color: '#31b29c'
+          },
+          '2016-12-27': {
+            content: '班',
+            color: '#eb4f04'
+          }
+        },
+        currentView: {},
+        indicator: {},
+        startDate: new Date(),
+        selected: new Date()
       }
     },
     components: {
       OrderSortList,
-      YFooter
+      YFooter,
+      calendar
     },
     mounted () {
       this.actions = [
@@ -61,6 +92,9 @@
         }
       ]
     },
+    created () {
+      this.dealWithIndicator(this.startDate)
+    },
     methods: {
       handleTab (val) {
         this.tabActive = val
@@ -70,6 +104,51 @@
       },
       selectSort (val) {
         this.sortName = val.name
+      },
+      callback (i) {
+        console.log(i)
+      },
+      selectDay (day) {
+        this.selected = day
+        alert(day)
+        console.log('day', day)
+      },
+      handleStartDate (date) {
+        this.startDate = date
+      },
+      dealWithIndicator (startDate) {
+        let indicator = {}
+        if (startDate.getMonth() <= 6) {
+          indicator.title = startDate.getFullYear() + '上学期'
+        } else {
+          indicator.title = startDate.getFullYear() + '下学期'
+        }
+        this.indicator = indicator
+      },
+      changeView () {
+        if (this.view === 'week') {
+          this.view = 'month'
+        } else if (this.view === 'month') {
+          this.view = 'week'
+        }
+      },
+      addEvent () {
+        let flag = window.confirm('是否给明天添加一条事件')
+        // let today = new Date()
+        if (flag) {
+          this.decorate = Object.assign({}, this.decorate, {
+            [moment(new Date()).add(1, 'day').format('YYYY-MM-DD')]: true
+          })
+        }
+      },
+      prev () {
+        console.log('prev clicked')
+      },
+      next () {
+        console.log('next clicked')
+      },
+      today () {
+        console.log('today clicked')
       }
     }
   }
@@ -207,6 +286,37 @@
       span {
         font-size: 12px;
         color: #707070;
+      }
+    }
+
+    .vueCalendar-wrapper {
+      font-size: 14px;
+
+      .vue-calendar {
+        background: #fff;
+      }
+
+      .vue-calendar-week {
+        background-color: #fff;
+      }
+
+      .vue-calendar-days {
+        background-color: #fff;
+      }
+
+      .vue-calendar-days .select {
+        color: #707070!important;
+      }
+
+      .vue-calendar-days .select.on {
+        background-color: #698CA7!important;
+        border-color: #698CA7!important;
+        font-size: 12px;
+        color: #FFFFFF!important;
+      }
+
+      .vue-calendar-week .week-day {
+        color: #707070!important;
       }
     }
   }

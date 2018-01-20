@@ -11,10 +11,12 @@ import './assets/styles/index.scss'
 import 'font-awesome/css/font-awesome.css'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'mint-ui/lib/style.css'
+import touch from 'vue-directive-touch'
 Vue.config.productionTip = false
 Vue.use(Mint)
 Vue.use(ElementUI)
 Vue.use(VueCordova)
+Vue.use(touch)
 
 /* eslint-disable no-new */
 new Vue({
