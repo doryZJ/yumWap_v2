@@ -50,9 +50,23 @@
           <span class="label">完成时间</span>
           <span class="value">{{completeTime}}</span>
         </div>
+        <div class="info">
+          <span class="label">目前状态</span>
+          <span class="value">
+            <img src="../assets/images/warn_red@2x.png" alt="" class="icon_state">
+            {{state}}
+          </span>
+        </div>
+        <div class="info">
+            <span class="label">工单进程</span>
+            <p class="value">
+              <span>{{urgentSelected}}</span>
+              <img src="../assets/images/Gray Copy 11.png" alt="" class="icon_check">
+            </p>
+          </div>
       </div>
     </div>
-    <div class="customer-review">
+    <!-- <div class="customer-review">
       <div class="head">客户评价</div>
       <div class="review-content">
         <div class="review">
@@ -64,7 +78,7 @@
           <span class="value">{{reviewDesc}}</span>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="fault-wrapper">
       <div class="head">故障明细</div>
       <div class="fault">
@@ -94,10 +108,13 @@
     <div class="remark-wrapper">
       <div class="head">
         <div class="clearfix">
-          <span class="name">维修备注</span>
+          <span class="name">维修记录</span>
         </div>
       </div>
       <textarea class="remark" v-model="remark"></textarea>
+    </div>
+    <div class="btn-wrapper">
+      <div class="btn">工单求助</div>
     </div>
   </div>
 </template>
@@ -114,7 +131,8 @@
         source: '日检',
         repairWorker: '李工',
         completeTime: '2017/10/17  16:30',
-        urgentSelected: '查看',
+        state: '无法完成',
+        urgentSelected: '展开查看',
         sheetVisible: false,
         actions: [],
         reviewDesc: '响应速度很快，半小时搞定问题',
@@ -348,10 +366,19 @@
               float: left;
             }
 
-            img {
+            .icon_state {
               float: left;
-              margin-left: 10px;
               margin-top: 8px;
+              width: 12px;
+              height: 12px;
+              margin-right: 6px;
+            }
+
+            .icon_check {
+              float: left;
+              margin-top: 8px;
+              margin-left: 6px;
+              transform: rotate(90deg);
             }
           }
         }
@@ -543,6 +570,8 @@
     }
 
     .remark-wrapper {
+      font-size: 0;
+
       .head {
         margin: 0.28rem 0.16rem 0.16rem 0.16rem;
         height: 16px;
@@ -580,9 +609,7 @@
       height: 0.9rem;
       padding: 0.2rem 30px 0.2rem 30px;
       width: 100%;
-      background: #fff;
       box-sizing: border-box;
-      position: fixed;
       bottom: 0;
 
       &::after {
@@ -591,13 +618,14 @@
       }
 
       .btn {
-        width: 100%;
+        width: 1.37rem;
         height: 0.5rem;
         background: #1792E5;
         line-height: 0.5rem;
         text-align: center;
         font-size: 16px;
         color: #FFFFFF;
+        float: right;
         letter-spacing: -0.89px;
       }
     }

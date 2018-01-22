@@ -33,7 +33,7 @@
           {
             icon: iconHome,
             name: '总览',
-            url: '/alarmOverview'
+            url: '/overview'
           },
           {
             icon: iconTarget,

@@ -56,7 +56,7 @@
       },
       handleLogin () {
         if (this.checkLogin()) {
-          this.$router.push('/alarmOverview')
+          this.$router.push('/overview')
         }
       },
       checkLogin () {

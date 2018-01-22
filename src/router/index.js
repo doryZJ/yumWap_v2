@@ -29,6 +29,7 @@ import RepairOrderDetail from '@/views/RepairOrderDetail'
 import EnergyTotal from '@/views/EnergyTotal'
 import AlarmOverview from '@/views/AlarmOverview'
 import OrdersList from '@/views/OrdersList'
+import Overview from '@/views/Overview'
 
 Vue.use(Router)
 
@@ -184,6 +185,11 @@ const router = new Router({
       path: '/ordersList',
       name: 'OrdersList',
       component: OrdersList
+    },
+    {
+      path: '/overview',
+      name: 'Overview',
+      component: Overview
     }
   ],
   scrollBehavior (to, from, savedPosition) {
