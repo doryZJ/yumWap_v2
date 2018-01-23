@@ -15,19 +15,12 @@
       </div>
       <div class="repairList">
         <ul :class="listCls">
-          <li v-for="(item, index) in list" :key="index" v-if="pageType === 0 || pageType === 2">
+          <li v-for="(item, index) in list" :key="index" >
             <div class="name-wrapper">
               <span class="state"></span>
               <span class="repairName">{{item.name}}</span>
             </div>
-            <span class="repairCount">{{item.value}}万元</span>
-          </li>
-          <li v-for="(item, index) in list" :key="index" v-if="pageType === 1">
-            <div class="name-wrapper">
-              <span class="state"></span>
-              <span class="repairName">{{item.name}}</span>
-            </div>
-            <span class="repairCount">{{item.value}}个</span>
+            <span class="repairCount">{{item.value}}{{unit}}</span>
           </li>
         </ul>
       </div>
@@ -42,7 +35,7 @@
         type: String,
         default: '类型分析'
       },
-      pageType: { // 0: 类型分析，1: 报警级别，2: 报警类型
+      pageType: { // 0: 类型分析，1: 报警级别，2: 报警类型, 3: 工单类型
         type: Number,
         default: 0
       },
@@ -70,6 +63,9 @@
           case 2:
             listCls = 'areaList'
             break
+          case 3:
+            listCls = 'areaList'
+            break
         }
         return listCls
       },
@@ -83,6 +79,9 @@
             circleColor = ['#EE3124', '#E56C1E', '#E5B430', '#FFD76C']
             break
           case 2:
+            circleColor = ['#6FB788', '#E6B634', '#DE6C60', '#957DAC']
+            break
+          case 3:
             circleColor = ['#6FB788', '#E6B634', '#DE6C60', '#957DAC']
             break
         }
@@ -100,8 +99,29 @@
           case 2:
             chartContentCls = 'typeChartContent'
             break
+          case 3:
+            chartContentCls = 'typeChartContent'
+            break
         }
         return chartContentCls
+      },
+      unit () {
+        let unit = ''
+        switch (this.pageType) {
+          case 0:
+            unit = '万元'
+            break
+          case 1:
+            unit = '个'
+            break
+          case 2:
+            unit = '万元'
+            break
+          case 3:
+            unit = '单'
+            break
+        }
+        return unit
       }
     },
     mounted () {

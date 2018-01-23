@@ -42,18 +42,18 @@
           },
           {
             icon: iconRepair,
-            name: '能量',
-            url: '/energyTotal'
+            name: '工单总览',
+            url: '/orderOverview'
           },
           {
             icon: iconEquipment,
-            name: '设备列表',
-            url: '/deviceList'
+            name: '常见问题',
+            url: '/commonProblem'
           },
           {
             icon: iconMyaccount,
-            name: '我的账户',
-            url: '/myCount'
+            name: '门店',
+            url: '/store'
           }
         ]
       }

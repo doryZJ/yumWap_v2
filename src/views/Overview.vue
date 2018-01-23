@@ -1,5 +1,5 @@
 <template>
-  <div class="overview">
+  <div class="overview-view">
     <div class="title">
       <span>总览</span>
       <div class="create">
@@ -32,7 +32,7 @@
     }
 </script>
 <style lang="scss">
-  .overview {
+  .overview-view {
     width: 100%;
     height: 100%;
     background: #F4F8FB;
